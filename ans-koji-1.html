@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>テーマ1 ビスと電線の種類｜回答編</title>
+<style>
+  :root{--paper:#f4f7fa;--card:#fff;--ink:#1c2530;--ink-soft:#4a5a6a;--line:#d7e0e8;
+    --sun:#f0a500;--sv:#164a7a;--kj:#2e7d32;--acc:var(--sv)}
+  @media (prefers-color-scheme:dark){:root{--paper:#10161d;--card:#1a2028;--ink:#e8edf2;--ink-soft:#a9b6c2;--line:#2c3844}}
+  :root[data-theme="dark"]{--paper:#10161d;--card:#1a2028;--ink:#e8edf2;--ink-soft:#a9b6c2;--line:#2c3844}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--paper);color:var(--ink);line-height:1.8;padding:28px 16px 70px;
+    font-family:"Yu Gothic Medium","Yu Gothic","Hiragino Kaku Gothic ProN","Noto Sans JP","Meiryo",sans-serif}
+  .wrap{max-width:860px;margin:0 auto}
+  .pt-head{color:#fff;border-radius:10px;padding:24px 26px;margin:0 0 18px}
+  .pt-head .e{font-size:12px;letter-spacing:.14em;opacity:.75;margin:0 0 6px}
+  .pt-head h1{font-size:22px;margin:0 0 6px;line-height:1.4}
+  .pt-head .s{font-size:13px;opacity:.88;margin:0}
+  .note{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--sun);
+    border-radius:10px;padding:14px 18px;margin:0 0 20px;font-size:13.5px;color:var(--ink-soft)}
+  h2.rd{font-size:16px;margin:34px 0 14px;padding:8px 14px;border-radius:8px;background:var(--acc);color:#fff}
+  .qa{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 18px;margin:0 0 12px}
+  .qa .q{font-size:15px;font-weight:700;margin:0 0 10px;display:flex;gap:9px}
+  .qa .q .n{flex:0 0 auto;width:24px;height:24px;border-radius:50%;background:var(--acc);color:#fff;
+    font-size:12px;display:flex;align-items:center;justify-content:center}
+  .qa .a{background:rgba(240,165,0,.10);border-left:4px solid var(--sun);border-radius:8px;
+    padding:10px 14px;font-size:14px;margin:0 0 10px}
+  .qa .a b{color:var(--ink)}
+  .qa .d{font-size:13px;color:var(--ink-soft);margin:0;padding-left:2px}
+  .qa .d b{color:var(--ink)}
+  .back{display:inline-block;margin-top:28px;font-size:13px;color:var(--ink-soft);text-decoration:none}
+  #pinGate{position:fixed;inset:0;z-index:9999;background:var(--paper);display:flex;align-items:center;justify-content:center;padding:20px}
+  #pinGate.hidden{display:none}
+  #pinGate .box{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:30px 28px;text-align:center;max-width:320px;width:100%}
+  #pinGate input{font-size:24px;letter-spacing:.35em;text-align:center;padding:10px 8px;width:170px;
+    border:1px solid var(--line);border-radius:10px;background:var(--paper);color:var(--ink);font-family:inherit}
+  #pinGate button{font-family:inherit;font-size:15px;font-weight:700;margin-top:12px;padding:10px 28px;
+    border:none;border-radius:8px;background:var(--acc);color:#fff;cursor:pointer}
+  #pinGate .err{color:#c94f4f;font-size:12px;height:16px;margin:6px 0}
+  @media print{@page{size:A4 portrait;margin:12mm 10mm}body{background:#fff;padding:0}
+    #pinGate,.back{display:none !important}.qa{page-break-inside:avoid}
+    .pt-head,h2.rd,.qa .a{-webkit-print-color-adjust:exact;print-color-adjust:exact}}
+  :root{--acc:#2e7d32}
+</style>
+</head>
+<body>
+<div id="pinGate"><div class="box">
+  <div style="font-size:32px">🔒</div>
+  <p style="font-weight:700;margin:8px 0 2px">回答編（社内用）</p>
+  <p style="font-size:12.5px;color:var(--ink-soft);margin:0 0 14px">4桁のPINを入力してください</p>
+  <input id="pin" type="tel" inputmode="numeric" maxlength="4" placeholder="••••">
+  <div class="err" id="pinErr"></div>
+  <button type="button" onclick="checkPin()">入る</button>
+</div></div>
+<div class="wrap">
+  <div class="pt-head" style="background:linear-gradient(135deg,#2e7d32 0%,#1b5e20 100%)">
+    <p class="e">回答編（社内用）</p>
+    <h1>テーマ1 ビスと電線の種類</h1>
+    <p class="s">工事スタッフ／第1回・第2回</p>
+  </div>
+  <div class="note">この解答は打合せ用です。<b>車の積載や店の在庫に関わるものは「店で決めること」</b>としています。工法や数値は現場と社内ルールで最終確認してください。</div>
+  <h2 class="rd">第1回（知る）</h2>
+  <div class="qa">
+    <p class="q"><span class="n">1</span>店と車にあるビスを、思いつくだけ名前で書いてください。</p>
+    <div class="a"><b>店で決めること。</b>木ネジ／タッピングビス／コーススレッド／ドリルビス（テクス）／ボードアンカー／アンカーボルト／ワッシャー付きビスなど、<b>車に載っているものを実物で確認</b>。</div>
+    <p class="d">これは覚える問題ではなく<b>棚と車を一緒に見て回る問題</b>です。名前が出てこないものがあれば、その場で先輩に聞いて、袋に名前を書いておくと次から迷いません。</p>
+  </div>
+  <div class="qa">
+    <p class="q"><span class="n">2</span>木ネジ・タッピングビス・コーススレッドは、それぞれ何に打つビスですか。</p>
+    <div class="a"><b>木ネジ</b>＝木材用。<b>タッピングビス</b>＝薄い鉄板や樹脂に、自分でねじ山を切りながら入る。<b>コーススレッド</b>＝木材用でねじ山が粗く効きが強い（下地・胴縁など）。</div>
+    <p class="d">間違えると「効かない」「なめる」「割れる」が起きます。<b>相手の材質で選ぶ</b>のが基本。鉄板に木ネジを打つ人は、道具のことを分かっていない人と見られます。</p>
+  </div>
+  <div class="qa">
+    <p class="q"><span class="n">3</span>石膏ボードに器具を取り付けるとき、ビスだけで打ってはいけないのはなぜですか。何を使いますか。</p>
+    <div class="a">ボードはもろく、<b>荷重がかかると穴が広がって抜ける</b>から。原則は<b>下地（木・軽天）を探して打つ</b>。下地がなければ<b>ボードアンカー</b>（トグラー・かさ式など）。重量物は必ず下地へ。</div>
+    <p class="d">落下事故に直結する項目です。<b>下地探しを使う習慣</b>をつけること。「たぶんこの辺に下地がある」で打つのがいちばん危ない。お客様の家を壊すことにもなります。</p>
+  </div>
+  <div class="qa">
+    <p class="q"><span class="n">4</span>「VVF 1.6-2C」。この表記は何を表していますか。ばらして説明してください。</p>
+    <div class="a"><b>VVF</b>＝600Vビニル絶縁ビニルシースケーブル<b>平形</b>／<b>1.6</b>＝導体の直径1.6mm（単線）／<b>2C</b>＝2芯（線が2本）。</div>
+    <p class="d">現場で「1.6の2芯」と言えば通じます。<b>数字＝太さ、C＝芯数</b>。これが読めないと、材料の発注も在庫の確認もできません。</p>
+  </div>
+  <div class="qa">
+    <p class="q"><span class="n">5</span>1.6と2.0の電線は、どう使い分けますか。</p>
+    <div class="a"><b>15A回路は1.6、20A回路（エアコン専用など）は2.0</b>が基本。距離が長いときは<b>電圧降下</b>を考えて太いほうを選ぶ。</div>
+    <p class="d">太いほうが安全ですが、曲げにくく高い。<b>回路のブレーカー容量で決まる</b>と覚えるのがいちばん確実です。</p>
+  </div>
+  <div class="qa">
+    <p class="q"><span class="n">6</span>2芯と3芯は、どんなときに3芯を使いますか。</p>
+    <div class="a"><b>3路スイッチ</b>の配線（階段など2か所で入切）、<b>200V機器やアース線を一緒に送る</b>とき、<b>渡り（送り）配線</b>が要るとき。</div>
+    <p class="d">「とりあえず3芯」で引くと材料費が上がります。逆に足りないと引き直しになります。<b>先に回路を頭に描いてから</b>拾うのが段取りです。</p>
+  </div>
+  <div class="qa">
+    <p class="q"><span class="n">7</span>VVFとVVR、Fケーブルと呼んでいるのはどちらですか。違いも一言で。</p>
+    <div class="a">Fケーブルと呼んでいるのは<b>VVF（平形）</b>。<b>VVRは丸形</b>で、引込まわりや露出配管など曲げの自由度が要る場所に使う。</div>
+    <p class="d">名前の由来はF＝Flat（平形）、R＝Round（丸形）。<b>形で覚える</b>と忘れません。</p>
+  </div>
+  <div class="qa">
+    <p class="q"><span class="n">8</span>ビスと電線は、車のどこに載っていますか。使い切ったときは誰にどう伝えますか。</p>
+    <div class="a"><b>店で決めること。</b>①車のどこ（棚の段・箱の名前）②在庫が減ったら誰に、どう伝えるか（LINE・在庫表・声かけ）を決めて、全員が同じにする。</div>
+    <p class="d">ここが決まっていないと「あると思ったらなかった」が起きます。<b>置き場所と補充のルールは、覚える前に決めるもの</b>。決まっていなければ、それを決めるのが先です。</p>
+  </div>
+  <div class="qa">
+    <p class="q"><span class="n">9</span>エアコンの専用回路を1本増やします。必要な電線と、ビス・固定材を書き出してください。</p>
+    <div class="a"><b>VVF 2.0-2C</b>（アースが要れば3芯またはIV緑）／分電盤の<b>20A配線用遮断器</b>（空きがなければ増設）／<b>接地極付コンセント</b>（100Vか200Vかを確認）／ステップル・サドル・PF管（露出なら）／スイッチボックス・プレート／絶縁テープ・リングスリーブ。</div>
+    <p class="d">この問題は<b>「ひとりで拾える」の入口</b>です。1つでも抜けると現場が止まります。実際に材料を並べてみて、自分の答えと突き合わせてください。</p>
+  </div>
+  <h2 class="rd">第2回（使う）</h2>
+  <div class="qa">
+    <p class="q"><span class="n">1</span>ステップルとサドルは、それぞれ何に使うものですか。</p>
+    <div class="a"><b>ステップル</b>＝VVFなどのケーブルを木部に留めるコの字の釘。<b>サドル</b>＝PF管やVE管、ケーブルをビスで固定する留め具（片サドル・両サドル）。</div>
+    <p class="d">ステップルを打ちすぎてケーブルを潰すのがよくある失敗。<b>締めるのではなく、そっと押さえる</b>のが正解です。</p>
+  </div>
+  <div class="qa">
+    <p class="q"><span class="n">2</span>電線を止めるとき、どのくらいの間隔で止めますか。</p>
+    <div class="a">目安は<b>おおむね1m以内</b>、造営材に沿って支持する。曲がりの手前と後、器具の近くは必ず留める。<b>社内の標準がある場合はそれに従う。</b></div>
+    <p class="d">見えない場所でも同じ間隔で留められる人が、いい職人です。<b>点検口を開けたときに恥ずかしくない配線</b>を目指してください。</p>
+  </div>
+  <div class="qa">
+    <p class="q"><span class="n">3</span>VVFを曲げるとき、気をつけることを2つ。</p>
+    <div class="a">①<b>被覆を傷つけない</b>（無理に折らない、ペンチで挟まない）②<b>急な曲げをしない</b>（ケーブル外径のおおむね6倍以上の半径をとる）。</div>
+    <p class="d">折れた電線は、その場では通電しても後で発熱・断線の原因になります。<b>目に見えない事故の種</b>をつくらないこと。</p>
+  </div>
+  <div class="qa">
+    <p class="q"><span class="n">4</span>圧着に使う工具の名前と、リングスリーブの大きさの選び方。</p>
+    <div class="a">工具＝<b>リングスリーブ用圧着ペンチ（黄色の柄）</b>。※裸圧着端子用（赤の柄）とは別物。大きさは<b>電線の太さと本数の組合せ</b>で小・中・大を選び、刻印（○・小・中）が合うダイスで圧着する。</div>
+    <p class="d">違う工具・違うダイスで圧着した接続は<b>抜ける・発熱する</b>。電気工事士の試験でも落とされる基本です。ここは絶対に自己流にしないこと。</p>
+  </div>
+  <div class="qa">
+    <p class="q"><span class="n">5</span>電線の黒・白・赤・緑は、それぞれ何を表していますか。</p>
+    <div class="a"><b>黒＝非接地側（電圧側）</b>／<b>白＝接地側（ニュートラル）</b>／<b>赤＝単相3線のもう一方の電圧側、または3路などの渡り</b>／<b>緑＝アース（接地線）</b>。</div>
+    <p class="d">色を守らないと、あとから入る人が読めません。<b>配線は次に触る人への手紙</b>です。自分だけ分かる配線は事故のもと。</p>
+  </div>
+  <div class="qa">
+    <p class="q"><span class="n">6</span>ビスの下穴を開けるのは、どんなときですか。</p>
+    <div class="a"><b>硬い木や端のほうに打つとき（割れ防止）</b>、太いビスを使うとき、化粧材など仕上げ面に打つとき。逆に石膏ボードや薄板では不要なことが多い。</div>
+    <p class="d">下穴ひとつで仕上がりが変わります。<b>「割れてから謝る」より、先に一手間。</b>お客様の家の柱を割ったら取り返しがつきません。</p>
+  </div>
+  <div class="qa">
+    <p class="q"><span class="n">7</span>天井裏や壁の中に電線を通すとき、気をつけることを3つ。</p>
+    <div class="a">①<b>既設の配線・配管・断熱材を傷つけない</b>②<b>踏み抜かない</b>（天井裏は野縁の上を歩く・脚立から身を乗り出さない）③<b>通線後に支持し、被覆の擦れを防ぐ</b>。加えて防火区画の貫通処理。</div>
+    <p class="d">天井の踏み抜きは、実際に起きる事故です。<b>お客様の家を壊す＝仕事以前の問題</b>。焦った時ほど確認してください。</p>
+  </div>
+  <div class="qa">
+    <p class="q"><span class="n">8</span>ビスや電線の残りが少なくなっているのを見つけました。どうしますか。</p>
+    <div class="a"><b>店で決めること。</b>その場で在庫の連絡（誰に・どこに）を入れて、次の現場で困らないようにする。「気づいた人が伝える」を全員のルールにする。</div>
+    <p class="d">これは道具の知識ではなく<b>報連相</b>の問題です。「自分が使う分はある」で黙る人がいると、必ず誰かが現場で止まります。</p>
+  </div>
+  <div class="qa">
+    <p class="q"><span class="n">9</span>コンセントを1か所増設します。必要な材料を書き出してください。</p>
+    <div class="a"><b>VVF 1.6-2C（または2.0-2C）</b>／<b>埋込コンセント本体＋取付枠＋プレート</b>／<b>スイッチボックス（はさみ金具・パネルボックス）</b>／ステップル・サドル／リングスリーブ・絶縁テープ／必要なら分電盤の空きブレーカー。</div>
+    <p class="d">既設回路から分岐するのか、盤から専用で引くのかで材料が変わります。<b>まず回路をどう取るかを決めてから拾う</b>。ここが段取りの本体です。</p>
+  </div>
+
+  <a class="back" href="kaito.html">← 回答編ポータルへ戻る</a>
+</div>
+<script>
+(function(){
+  var KEY="yahataKaitoAuth_v1", PIN="7860";
+  function reveal(){var g=document.getElementById("pinGate"); if(g) g.classList.add("hidden");}
+  window.checkPin=function(){
+    var v=(document.getElementById("pin").value||"").trim();
+    if(v===PIN){ try{localStorage.setItem(KEY,"1");}catch(e){} reveal(); }
+    else{ document.getElementById("pinErr").textContent="PINが違います"; }
+  };
+  var ok=false; try{ ok=localStorage.getItem(KEY)==="1"; }catch(e){}
+  if(ok) reveal();
+  else{ var i=document.getElementById("pin");
+    if(i){ i.addEventListener("keydown",function(e){ if(e.key==="Enter") window.checkPin(); });
+      setTimeout(function(){ try{i.focus();}catch(e){} },100); } }
+})();
+</script>
+</body>
+</html>

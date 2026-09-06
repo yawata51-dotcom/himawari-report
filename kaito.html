@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>クイズ回答編｜ヤハタ電機商会</title>
+<style>
+  :root{--paper:#f4f7fa;--card:#fff;--ink:#1c2530;--ink-soft:#4a5a6a;--line:#d7e0e8;
+    --sun:#f0a500;--sv-bg:#e4eefa;--sv-fg:#164a7a;--kj-bg:#e8f5e9;--kj-fg:#2e7d32}
+  @media (prefers-color-scheme:dark){:root{--paper:#10161d;--card:#1a2028;--ink:#e8edf2;
+    --ink-soft:#a9b6c2;--line:#2c3844;--sv-bg:#152a3d;--sv-fg:#8ec2ef;--kj-bg:#152e18;--kj-fg:#8fd694}}
+  :root[data-theme="dark"]{--paper:#10161d;--card:#1a2028;--ink:#e8edf2;
+    --ink-soft:#a9b6c2;--line:#2c3844;--sv-bg:#152a3d;--sv-fg:#8ec2ef;--kj-bg:#152e18;--kj-fg:#8fd694}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--paper);color:var(--ink);line-height:1.75;padding:32px 16px 70px;
+    font-family:"Yu Gothic Medium","Yu Gothic","Hiragino Kaku Gothic ProN","Noto Sans JP","Meiryo",sans-serif}
+  .wrap{max-width:900px;margin:0 auto}
+  .strip-title{font-size:12px;font-weight:700;letter-spacing:.1em;color:var(--ink-soft);
+    margin:30px 0 12px;padding-left:11px;border-left:3px solid var(--sun)}
+  .block{background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden;margin:0 0 14px}
+  .block__head{display:flex;align-items:center;gap:9px;padding:11px 16px;font-size:14px;font-weight:700}
+  .block.sv .block__head{background:var(--sv-bg);color:var(--sv-fg)}
+  .block.kj .block__head{background:var(--kj-bg);color:var(--kj-fg)}
+  .block__body{padding:6px 10px 10px}
+  .row{display:flex;align-items:center;gap:10px;padding:9px 6px;border-bottom:1px dotted var(--line)}
+  .row:last-child{border-bottom:none}
+  .row .no{flex:0 0 auto;width:24px;height:24px;border-radius:50%;background:var(--paper);
+    color:var(--ink-soft);font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center}
+  .row .nm{flex:1 1 auto;font-size:14px;min-width:0}
+  .rd{flex:0 0 auto;font-size:12px;font-weight:700;padding:4px 14px;border-radius:999px;
+    text-decoration:none;color:#fff}
+  .block.sv .rd{background:var(--sv-fg)} .block.kj .rd{background:var(--kj-fg)}
+  .rd.off{background:transparent;border:1px dashed var(--line);color:var(--ink-soft);font-weight:400}
+  #pinGate{position:fixed;inset:0;z-index:9999;background:var(--paper);display:flex;align-items:center;justify-content:center;padding:20px}
+  #pinGate.hidden{display:none}
+  #pinGate .box{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:30px 28px;text-align:center;max-width:320px;width:100%}
+  #pinGate input{font-size:24px;letter-spacing:.35em;text-align:center;padding:10px 8px;width:170px;
+    border:1px solid var(--line);border-radius:10px;background:var(--paper);color:var(--ink);font-family:inherit}
+  #pinGate button{font-family:inherit;font-size:15px;font-weight:700;margin-top:12px;padding:10px 28px;
+    border:none;border-radius:8px;background:#4a2b6b;color:#fff;cursor:pointer}
+  #pinGate .err{color:#c94f4f;font-size:12px;height:16px;margin:6px 0}
+</style>
+</head>
+<body>
+
+<div id="pinGate"><div class="box">
+  <div style="font-size:32px">🔒</div>
+  <p style="font-weight:700;margin:8px 0 2px">クイズ回答編（社内用）</p>
+  <p style="font-size:12.5px;color:var(--ink-soft);margin:0 0 14px">4桁のPINを入力してください</p>
+  <input id="pin" type="tel" inputmode="numeric" maxlength="4" placeholder="••••">
+  <div class="err" id="pinErr"></div>
+  <button type="button" onclick="checkPin()">入る</button>
+</div></div>
+
+<div class="wrap">
+
+  <div class="pt-head" style="background:linear-gradient(135deg,#4a2b6b 0%,#2b1740 100%);color:#fff;border-radius:10px;padding:26px 30px 24px;margin:0 0 20px">
+    <p style="font-size:12px;letter-spacing:.14em;color:rgba(255,255,255,.72);margin:0 0 6px">答え合わせ用</p>
+    <h1 style="font-size:23px;font-weight:700;margin:0 0 6px;color:#fff;line-height:1.4">クイズ回答編</h1>
+    <p style="font-size:13px;color:rgba(255,255,255,.82);margin:0">模範解答と、なぜそう答えるかの解説。</p>
+  </div>
+
+  <p class="strip-title">サービススタッフ</p>
+  <div class="block sv">
+    <div class="block__head"><span>🔧</span>商品知識</div>
+    <div class="block__body">
+      <div class="row"><span class="no">1</span><span class="nm">テレビ・ブルーレイ・アンテナ</span><a class="rd" href="ans-service-1.html">回答</a></div>
+      <div class="row"><span class="no">2</span><span class="nm">エアコン</span><a class="rd" href="ans-service-2.html">回答</a></div>
+      <div class="row"><span class="no">3</span><span class="nm">冷蔵庫</span><a class="rd" href="ans-service-3.html">回答</a></div>
+      <div class="row"><span class="no">4</span><span class="nm">洗濯機・衣類乾燥機</span><span class="rd off">これから</span></div>
+      <div class="row"><span class="no">5</span><span class="nm">調理家電</span><span class="rd off">これから</span></div>
+      <div class="row"><span class="no">6</span><span class="nm">家事家電</span><span class="rd off">これから</span></div>
+      <div class="row"><span class="no">7</span><span class="nm">インターホン・電話機・防犯カメラ</span><span class="rd off">これから</span></div>
+      <div class="row"><span class="no">8</span><span class="nm">季節もの</span><span class="rd off">これから</span></div>
+      <div class="row"><span class="no">9</span><span class="nm">オール電化</span><span class="rd off">これから</span></div>
+      <div class="row"><span class="no">10</span><span class="nm">トイレ</span><span class="rd off">これから</span></div>
+      <div class="row"><span class="no">11</span><span class="nm">ヘルスケア・オーラルケア</span><span class="rd off">これから</span></div>
+      <div class="row"><span class="no">12</span><span class="nm">理美容</span><span class="rd off">これから</span></div>
+      <div class="row"><span class="no">13</span><span class="nm">設備商品</span><span class="rd off">これから</span></div>
+      <div class="row"><span class="no">14</span><span class="nm">照明・火災警報器</span><span class="rd off">これから</span></div>
+    </div>
+  </div>
+
+  <p class="strip-title">工事スタッフ</p>
+  <div class="block kj">
+    <div class="block__head"><span>⚙️</span>道具と材料</div>
+    <div class="block__body">
+      <div class="row"><span class="no">1</span><span class="nm">ビスと電線の種類</span><a class="rd" href="ans-koji-1.html">回答</a></div>
+      <div class="row"><span class="no">2</span><span class="nm">安全と養生・腰袋</span><a class="rd" href="ans-koji-2.html">回答</a></div>
+      <div class="row"><span class="no">3</span><span class="nm">エアコンの工具と部材</span><a class="rd" href="ans-koji-3.html">回答</a></div>
+      <div class="row"><span class="no">4</span><span class="nm">電動工具・のこぎり・測定器</span><span class="rd off">これから</span></div>
+      <div class="row"><span class="no">5</span><span class="nm">電気工事・照明の工具と部材</span><span class="rd off">これから</span></div>
+      <div class="row"><span class="no">6</span><span class="nm">アンテナの部材と配線</span><span class="rd off">これから</span></div>
+      <div class="row"><span class="no">7</span><span class="nm">水道・排水・トイレの部材</span><span class="rd off">これから</span></div>
+      <div class="row"><span class="no">8</span><span class="nm">オール電化・レンジフードの工具と部材</span><span class="rd off">これから</span></div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+(function(){
+  var KEY="yahataKaitoAuth_v1", PIN="7860";
+  function reveal(){var g=document.getElementById("pinGate"); if(g) g.classList.add("hidden");}
+  window.checkPin=function(){
+    var v=(document.getElementById("pin").value||"").trim();
+    if(v===PIN){ try{localStorage.setItem(KEY,"1");}catch(e){} reveal(); }
+    else{ document.getElementById("pinErr").textContent="PINが違います"; }
+  };
+  var ok=false; try{ ok=localStorage.getItem(KEY)==="1"; }catch(e){}
+  if(ok) reveal();
+  else{ var i=document.getElementById("pin");
+    if(i){ i.addEventListener("keydown",function(e){ if(e.key==="Enter") window.checkPin(); });
+      setTimeout(function(){ try{i.focus();}catch(e){} },100); } }
+})();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>テーマ1 テレビ・ブルーレイ・アンテナ｜回答編</title>
+<style>
+  :root{--paper:#f4f7fa;--card:#fff;--ink:#1c2530;--ink-soft:#4a5a6a;--line:#d7e0e8;
+    --sun:#f0a500;--sv:#164a7a;--kj:#2e7d32;--acc:var(--sv)}
+  @media (prefers-color-scheme:dark){:root{--paper:#10161d;--card:#1a2028;--ink:#e8edf2;--ink-soft:#a9b6c2;--line:#2c3844}}
+  :root[data-theme="dark"]{--paper:#10161d;--card:#1a2028;--ink:#e8edf2;--ink-soft:#a9b6c2;--line:#2c3844}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--paper);color:var(--ink);line-height:1.8;padding:28px 16px 70px;
+    font-family:"Yu Gothic Medium","Yu Gothic","Hiragino Kaku Gothic ProN","Noto Sans JP","Meiryo",sans-serif}
+  .wrap{max-width:860px;margin:0 auto}
+  .pt-head{color:#fff;border-radius:10px;padding:24px 26px;margin:0 0 18px}
+  .pt-head .e{font-size:12px;letter-spacing:.14em;opacity:.75;margin:0 0 6px}
+  .pt-head h1{font-size:22px;margin:0 0 6px;line-height:1.4}
+  .pt-head .s{font-size:13px;opacity:.88;margin:0}
+  .note{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--sun);
+    border-radius:10px;padding:14px 18px;margin:0 0 20px;font-size:13.5px;color:var(--ink-soft)}
+  h2.rd{font-size:16px;margin:34px 0 14px;padding:8px 14px;border-radius:8px;background:var(--acc);color:#fff}
+  .qa{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 18px;margin:0 0 12px}
+  .qa .q{font-size:15px;font-weight:700;margin:0 0 10px;display:flex;gap:9px}
+  .qa .q .n{flex:0 0 auto;width:24px;height:24px;border-radius:50%;background:var(--acc);color:#fff;
+    font-size:12px;display:flex;align-items:center;justify-content:center}
+  .qa .a{background:rgba(240,165,0,.10);border-left:4px solid var(--sun);border-radius:8px;
+    padding:10px 14px;font-size:14px;margin:0 0 10px}
+  .qa .a b{color:var(--ink)}
+  .qa .d{font-size:13px;color:var(--ink-soft);margin:0;padding-left:2px}
+  .qa .d b{color:var(--ink)}
+  .back{display:inline-block;margin-top:28px;font-size:13px;color:var(--ink-soft);text-decoration:none}
+  #pinGate{position:fixed;inset:0;z-index:9999;background:var(--paper);display:flex;align-items:center;justify-content:center;padding:20px}
+  #pinGate.hidden{display:none}
+  #pinGate .box{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:30px 28px;text-align:center;max-width:320px;width:100%}
+  #pinGate input{font-size:24px;letter-spacing:.35em;text-align:center;padding:10px 8px;width:170px;
+    border:1px solid var(--line);border-radius:10px;background:var(--paper);color:var(--ink);font-family:inherit}
+  #pinGate button{font-family:inherit;font-size:15px;font-weight:700;margin-top:12px;padding:10px 28px;
+    border:none;border-radius:8px;background:var(--acc);color:#fff;cursor:pointer}
+  #pinGate .err{color:#c94f4f;font-size:12px;height:16px;margin:6px 0}
+  @media print{@page{size:A4 portrait;margin:12mm 10mm}body{background:#fff;padding:0}
+    #pinGate,.back{display:none !important}.qa{page-break-inside:avoid}
+    .pt-head,h2.rd,.qa .a{-webkit-print-color-adjust:exact;print-color-adjust:exact}}
+  :root{--acc:#164a7a}
+</style>
+</head>
+<body>
+<div id="pinGate"><div class="box">
+  <div style="font-size:32px">🔒</div>
+  <p style="font-weight:700;margin:8px 0 2px">回答編（社内用）</p>
+  <p style="font-size:12.5px;color:var(--ink-soft);margin:0 0 14px">4桁のPINを入力してください</p>
+  <input id="pin" type="tel" inputmode="numeric" maxlength="4" placeholder="••••">
+  <div class="err" id="pinErr"></div>
+  <button type="button" onclick="checkPin()">入る</button>
+</div></div>
+<div class="wrap">
+  <div class="pt-head" style="background:linear-gradient(135deg,#1a3a5c 0%,#12283f 100%)">
+    <p class="e">回答編（社内用）</p>
+    <h1>テーマ1 テレビ・ブルーレイ・アンテナ</h1>
+    <p class="s">サービススタッフ／第1回・第2回</p>
+  </div>
+  <div class="note">この解答は打合せ用です。<b>店の商品や置き場所に関わるものは「店で決めること」</b>としています。数字はカタログで最新を確認してください。</div>
+  <h2 class="rd">第1回（知る）</h2>
+  <div class="qa">
+    <p class="q"><span class="n">1</span>いま店ですすめているテレビを、大きい方から3つ書いてください。</p>
+    <div class="a"><b>店で決めること。</b>現行カタログの「上のクラス／真ん中／お手頃」を、それぞれ<b>クラス名＋サイズ＋おおよその価格</b>で言えれば合格。</div>
+    <p class="d">型番の羅列は要りません。お客様は「どのくらいのものか」を知りたいので、価格帯とセットで覚えるほうが役に立ちます。3つ言えると、予算を聞いてすぐ出せます。</p>
+  </div>
+  <div class="qa">
+    <p class="q"><span class="n">2</span>いま扱っているテレビの画面サイズ（インチ）を、小さい方から順に書いてください。</p>
+    <div class="a">現行の取扱サイズを順に。あわせて<b>視聴距離の目安</b>＝4Kなら画面の高さの約1.5倍、フルハイビジョンなら約3倍。</div>
+    <p class="d">「6畳なら何インチ？」と聞かれたときに答えるための知識です。いまは昔より大きめで大丈夫（4Kは近くで見ても粗が出ない）。ここを知っていると、ワンサイズ上をすすめる根拠になります。</p>
+  </div>
+  <div class="qa">
+    <p class="q"><span class="n">3</span>有機ELと液晶、それぞれの良いところを一言ずつ。</p>
+    <div class="a"><b>有機EL</b>＝黒がしっかり沈んで映像が締まる。斜めから見ても色が変わらない。暗めの部屋・映画向き。<br><b>液晶（ミニLED含む）</b>＝明るい部屋に強い。同じサイズなら安い。サイズの選択肢が多い。</div>
+    <p class="d">言い方の例：「暗くして映画を見るなら有機EL、日中の明るいリビングなら液晶が見やすいです」。どちらが上、ではなく<b>部屋で決まる</b>という説明にすると押し売りになりません。</p>
+  </div>
+  <div class="qa">
+    <p class="q"><span class="n">4</span>いちばん上のモデルと、いちばん下のモデル。値段の差は何の差ですか。</p>
+    <div class="a">①パネル（有機ELか液晶か、倍速かどうか）②映像エンジン ③スピーカーの数と音質 ④チューナー数・録画まわり ⑤デザイン。<b>まとめると「画・音・使いやすさ」の3つ。</b></div>
+    <p class="d">この3語で言えるようにしておくと、どの商品でも応用できます。お客様は細かい仕様より「何が違って高いのか」を知りたいだけです。</p>
+  </div>
+  <div class="qa">
+    <p class="q"><span class="n">5</span>ブルーレイレコーダーで、お客様が違いを感じるところを2つ。</p>
+    <div class="a">①<b>同時に録れる番組数</b>（1／2／3番組）②<b>ハードディスクの容量</b>（500GB／1TB／2TB＝録画できる時間）。ほかに4K放送の録画対応、外付けHDD対応、スマホへの持ち出し。</div>
+    <p class="d">「毎週これとこれが重なるんです」と聞けたら2番組以上。ドラマをためる人は容量。この2つを聞くだけで機種が決まります。</p>
+  </div>
+  <div class="qa">
+    <p class="q"><span class="n">6</span>「録画は使わない、字幕と音が聞きやすければいい」という80代のお客様。どれをすすめて、どう説明しますか。</p>
+    <div class="a"><b>音の聞き取りやすさ</b>で選ぶ（人の声を強調する機能・前向きスピーカー）。サイズは今より1〜2サイズ大きめ。リモコンのボタンが少ないもの。説明は<b>電源・音量・チャンネル・入力切替の4つだけ</b>。</div>
+    <p class="d">いちばんやってはいけないのが「安いから」でいちばん下を出すこと。使わない機能は削ってよいですが、<b>音は削ってはいけない</b>。ここにお金を使うと満足度が違います。</p>
+  </div>
+  <div class="qa">
+    <p class="q"><span class="n">7</span>「最近テレビが映らないことがある」と電話がありました。伺う前に、電話で確かめておくことを3つ。</p>
+    <div class="a">①<b>全部のチャンネルか、特定のチャンネルだけか</b> ②<b>家中か、その部屋だけか</b> ③<b>いつからか・天気の悪い日に多いか</b>。加えて画面のエラー番号（E202＝受信できない、E203＝放送休止、E201＝受信レベル低下）。</div>
+    <p class="d">この3つで原因の見当がつきます。特定chだけ＝アンテナの向きやブースター、家中＝アンテナ本体や分配器、その部屋だけ＝その部屋の配線か端子。<b>行く前に部材の見当がつく</b>ので二度手間になりません。</p>
+  </div>
+  <div class="qa">
+    <p class="q"><span class="n">8</span>分配器・混合器・ブースターは、それぞれ何をするものですか。</p>
+    <div class="a"><b>分配器</b>＝1本の電波を複数の部屋へ分ける（分けた分だけ弱くなる）。<b>混合器</b>＝地デジとBS/CSなど別々の電波を1本にまとめる。<b>ブースター</b>＝弱くなった電波を増幅する。<br>※<b>分波器</b>＝混ざった電波を分ける（テレビの手前で使う）。</div>
+    <p class="d">分配器と分波器は名前が似ていて混同しがちです。「<b>分配＝部屋に配る</b>／<b>分波＝地デジとBSに分ける</b>」で覚えてください。</p>
+  </div>
+  <div class="qa">
+    <p class="q"><span class="n">9</span>1台のアンテナから部屋を1つ増やしたい、と言われました。何が必要ですか。</p>
+    <div class="a">口数の多い分配器へ交換（例：2分配→4分配）＋<b>同軸ケーブル（S-5C-FB など）</b>＋アンテナ端子とプレート。分けると電波が弱くなるので<b>受信レベルを測り</b>、足りなければブースター。</div>
+    <p class="d">「分配器を替えれば終わり」ではありません。<b>測ってから決める</b>のが基本。壁の中を通せない家もあるので、経路の確認まで含めて見積もります。</p>
+  </div>
+  <h2 class="rd">第2回（使う）</h2>
+  <div class="qa">
+    <p class="q"><span class="n">1</span>いま扱っているブルーレイレコーダーを、容量の大きい方から3つ書いてください。</p>
+    <div class="a"><b>店で決めること。</b>容量（TB）と同時録画数をセットで言えること。</div>
+    <p class="d">レコーダーは容量と番組数の2軸だけです。ここを押さえておくと、テレビの商談のついでに提案できます。</p>
+  </div>
+  <div class="qa">
+    <p class="q"><span class="n">2</span>4Kと2K（フルハイビジョン）の違いを、お客様に一言で説明してください。</p>
+    <div class="a"><b>「画素の数が4倍で、近くで見ても粗が出ません。だから同じ部屋でも大きい画面が置けます」</b></div>
+    <p class="d">「きれい」だけだと伝わりません。<b>大きい画面を近くで見られる＝サイズアップできる</b>という実利に置き換えると納得されます。</p>
+  </div>
+  <div class="qa">
+    <p class="q"><span class="n">3</span>毎日録画をする方には、レコーダーのどこを見てすすめますか。</p>
+    <div class="a"><b>同時録画数と容量。</b>連ドラを複数追う方は2〜3番組同時、ためて後で見る方は1TB以上。加えて外付けHDDで増やせるか。</div>
+    <p class="d">「何を録りますか」「何曜日が重なりますか」と聞けば決まります。使い方を聞かずにスペックで出すと外します。</p>
+  </div>
+  <div class="qa">
+    <p class="q"><span class="n">4</span>リビング用と寝室用。選び方の違いを2つ書いてください。</p>
+    <div class="a">①<b>明るさ</b>（リビングは明るいので液晶が有利、寝室は暗いので有機ELも合う）②<b>サイズと距離</b>（寝室は近いので小さめ、リビングは離れるので大きめ）。ほか寝室はおやすみタイマー・音量控えめの機能。</div>
+    <p class="d">部屋で決まるという説明は、押し売りに聞こえません。「寝室ならこれで十分ですよ」と<b>下げる提案</b>ができる人は信用されます。</p>
+  </div>
+  <div class="qa">
+    <p class="q"><span class="n">5</span>「量販店のほうが安かった」と言われました。どう答えますか。</p>
+    <div class="a">値引きで張り合わない。<b>「取り付けと設定、そのあとの面倒までうちが見ます」</b>と、含まれているものの違いを伝える。設置・配線・古いテレビの引取・使い方説明・不具合時の対応。</div>
+    <p class="d">ここで値引きをすると、次から値引きの話しかできなくなります。<b>売っているのは商品ではなく、その後の安心</b>。それが会社の方針です。</p>
+  </div>
+  <div class="qa">
+    <p class="q"><span class="n">6</span>買い替えのとき、古いテレビはどうなりますか。費用の説明もあわせて。</p>
+    <div class="a">家電リサイクル法の対象。<b>リサイクル料金＋収集運搬費</b>がかかる。目安はリサイクル料金が小型で約1,870円／大型で約2,970円、収集運搬費は買い替えで3,300円。<b>金額は見積システムの最新設定で確認</b>。</div>
+    <p class="d">あとから「聞いていない」となりやすいところです。<b>見積の段階で必ず口に出す</b>。金額を先に言う人のほうが信用されます。</p>
+  </div>
+  <div class="qa">
+    <p class="q"><span class="n">7</span>設置に伺う前に、お客様に確かめておくことを3つ。</p>
+    <div class="a">①<b>置き場所の寸法</b>（テレビ台の幅・耐荷重、スタンド幅）②<b>コンセントとアンテナ端子の位置</b> ③<b>搬入経路</b>。加えて古いテレビの引取と、レコーダー等の接続引継ぎ。</div>
+    <p class="d">この3つを聞かずに行って、その日に付けられなかったら信用を落とします。<b>電話で聞ける段取りが、当日の速さになります。</b></p>
+  </div>
+  <div class="qa">
+    <p class="q"><span class="n">8</span>アンテナが原因で映らないとき、考えられる原因を3つ。</p>
+    <div class="a">①<b>アンテナの向きのズレ</b>（強風・台風のあと）②<b>ブースターの電源が入っていない・故障</b> ③<b>ケーブルや接栓の劣化・抜け</b>。ほかに素子の腐食、分配のしすぎ、まわりの建物。</div>
+    <p class="d">「天気の悪い日に多い」ならアンテナ側、「特定の部屋だけ」なら屋内側。<b>症状から場所を絞る</b>のが早さのコツです。</p>
+  </div>
+  <div class="qa">
+    <p class="q"><span class="n">9</span>テレビを買い替えたお客様に、次にご案内できるものは何ですか。</p>
+    <div class="a">アンテナの点検、ブルーレイ、スピーカー（音が気になる方）、Wi-Fi環境（ネット動画を見たい方）、テレビ台、電源タップ。<b>あわせて、家の他の家電の年数を確認する。</b></div>
+    <p class="d">買い替えの日は、家の中をいちばん見せてもらえる日です。<b>売り込むのではなく、年数を見て記録しておく</b>。それが次の見込みになります。</p>
+  </div>
+
+  <a class="back" href="kaito.html">← 回答編ポータルへ戻る</a>
+</div>
+<script>
+(function(){
+  var KEY="yahataKaitoAuth_v1", PIN="7860";
+  function reveal(){var g=document.getElementById("pinGate"); if(g) g.classList.add("hidden");}
+  window.checkPin=function(){
+    var v=(document.getElementById("pin").value||"").trim();
+    if(v===PIN){ try{localStorage.setItem(KEY,"1");}catch(e){} reveal(); }
+    else{ document.getElementById("pinErr").textContent="PINが違います"; }
+  };
+  var ok=false; try{ ok=localStorage.getItem(KEY)==="1"; }catch(e){}
+  if(ok) reveal();
+  else{ var i=document.getElementById("pin");
+    if(i){ i.addEventListener("keydown",function(e){ if(e.key==="Enter") window.checkPin(); });
+      setTimeout(function(){ try{i.focus();}catch(e){} },100); } }
+})();
+</script>
+</body>
+</html>

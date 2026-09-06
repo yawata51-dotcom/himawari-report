@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>テーマ3 エアコンの工具と部材｜回答編</title>
+<style>
+  :root{--paper:#f4f7fa;--card:#fff;--ink:#1c2530;--ink-soft:#4a5a6a;--line:#d7e0e8;
+    --sun:#f0a500;--sv:#164a7a;--kj:#2e7d32;--acc:var(--sv)}
+  @media (prefers-color-scheme:dark){:root{--paper:#10161d;--card:#1a2028;--ink:#e8edf2;--ink-soft:#a9b6c2;--line:#2c3844}}
+  :root[data-theme="dark"]{--paper:#10161d;--card:#1a2028;--ink:#e8edf2;--ink-soft:#a9b6c2;--line:#2c3844}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--paper);color:var(--ink);line-height:1.8;padding:28px 16px 70px;
+    font-family:"Yu Gothic Medium","Yu Gothic","Hiragino Kaku Gothic ProN","Noto Sans JP","Meiryo",sans-serif}
+  .wrap{max-width:860px;margin:0 auto}
+  .pt-head{color:#fff;border-radius:10px;padding:24px 26px;margin:0 0 18px}
+  .pt-head .e{font-size:12px;letter-spacing:.14em;opacity:.75;margin:0 0 6px}
+  .pt-head h1{font-size:22px;margin:0 0 6px;line-height:1.4}
+  .pt-head .s{font-size:13px;opacity:.88;margin:0}
+  .note{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--sun);
+    border-radius:10px;padding:14px 18px;margin:0 0 20px;font-size:13.5px;color:var(--ink-soft)}
+  h2.rd{font-size:16px;margin:34px 0 14px;padding:8px 14px;border-radius:8px;background:var(--acc);color:#fff}
+  .qa{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 18px;margin:0 0 12px}
+  .qa .q{font-size:15px;font-weight:700;margin:0 0 10px;display:flex;gap:9px}
+  .qa .q .n{flex:0 0 auto;width:24px;height:24px;border-radius:50%;background:var(--acc);color:#fff;
+    font-size:12px;display:flex;align-items:center;justify-content:center}
+  .qa .a{background:rgba(240,165,0,.10);border-left:4px solid var(--sun);border-radius:8px;
+    padding:10px 14px;font-size:14px;margin:0 0 10px}
+  .qa .a b{color:var(--ink)}
+  .qa .d{font-size:13px;color:var(--ink-soft);margin:0;padding-left:2px}
+  .qa .d b{color:var(--ink)}
+  .back{display:inline-block;margin-top:28px;font-size:13px;color:var(--ink-soft);text-decoration:none}
+  #pinGate{position:fixed;inset:0;z-index:9999;background:var(--paper);display:flex;align-items:center;justify-content:center;padding:20px}
+  #pinGate.hidden{display:none}
+  #pinGate .box{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:30px 28px;text-align:center;max-width:320px;width:100%}
+  #pinGate input{font-size:24px;letter-spacing:.35em;text-align:center;padding:10px 8px;width:170px;
+    border:1px solid var(--line);border-radius:10px;background:var(--paper);color:var(--ink);font-family:inherit}
+  #pinGate button{font-family:inherit;font-size:15px;font-weight:700;margin-top:12px;padding:10px 28px;
+    border:none;border-radius:8px;background:var(--acc);color:#fff;cursor:pointer}
+  #pinGate .err{color:#c94f4f;font-size:12px;height:16px;margin:6px 0}
+  @media print{@page{size:A4 portrait;margin:12mm 10mm}body{background:#fff;padding:0}
+    #pinGate,.back{display:none !important}.qa{page-break-inside:avoid}
+    .pt-head,h2.rd,.qa .a{-webkit-print-color-adjust:exact;print-color-adjust:exact}}
+  :root{--acc:#2e7d32}
+</style>
+</head>
+<body>
+<div id="pinGate"><div class="box">
+  <div style="font-size:32px">🔒</div>
+  <p style="font-weight:700;margin:8px 0 2px">回答編（社内用）</p>
+  <p style="font-size:12.5px;color:var(--ink-soft);margin:0 0 14px">4桁のPINを入力してください</p>
+  <input id="pin" type="tel" inputmode="numeric" maxlength="4" placeholder="••••">
+  <div class="err" id="pinErr"></div>
+  <button type="button" onclick="checkPin()">入る</button>
+</div></div>
+<div class="wrap">
+  <div class="pt-head" style="background:linear-gradient(135deg,#2e7d32 0%,#1b5e20 100%)">
+    <p class="e">回答編（社内用）</p>
+    <h1>テーマ3 エアコンの工具と部材</h1>
+    <p class="s">工事スタッフ／第1回・第2回</p>
+  </div>
+  <div class="note">この解答は打合せ用です。<b>車の積載や店のルールに関わるものは「店で決めること」</b>としています。工法や数値はメーカーの据付説明書と社内ルールで最終確認してください。</div>
+  <h2 class="rd">第1回（知る）</h2>
+  <div class="qa">
+    <p class="q"><span class="n">1</span>エアコン工事で使う工具を、全部書き出してください。</p>
+    <div class="a">パイプカッター、リーマー（バリ取り）、<b>フレアツール</b>、<b>トルクレンチ</b>、モンキーレンチ2丁、<b>真空ポンプ</b>、<b>マニホールドゲージ</b>、六角レンチ、コアドリル（穴あけ）、水平器、下地探し、インパクトドライバー、電工工具一式、真空引き用ホース。</div>
+    <p class="d">エアコンは<b>専用工具がないと仕事にならない</b>数少ない工事です。名前と用途がつながっていないと、先輩に頼まれても渡せません。</p>
+  </div>
+  <div class="qa">
+    <p class="q"><span class="n">2</span>冷媒管（ペアコイル）のサイズには何がありますか。どう使い分けますか。</p>
+    <div class="a">一般家庭用は<b>2分3分（2分＝1/4、3分＝3/8）</b>が中心。大きめの能力機（4.0kW以上など）は<b>2分4分（1/2）</b>になることがある。<b>機種の据付説明書で指定サイズを確認</b>。</div>
+    <p class="d">サイズ違いを持って行くと、その日は終わりです。<b>現調のときに機種を確定させてから材料を拾う</b>。既設流用の場合は既設のサイズも確認します。</p>
+  </div>
+  <div class="qa">
+    <p class="q"><span class="n">3</span>フレアツールとトルクレンチは、それぞれ何のための工具ですか。</p>
+    <div class="a"><b>フレアツール</b>＝銅管の先をラッパ状に広げて、接続できる形にする。<b>トルクレンチ</b>＝規定の締め付けトルクでフレアナットを締める（締めすぎ・緩みを防ぐ）。</div>
+    <p class="d">ガス漏れの原因はほぼこの2つの作業にあります。<b>感覚で締めない。</b>トルクレンチを使う人と使わない人で、数年後のクレーム率が変わります。</p>
+  </div>
+  <div class="qa">
+    <p class="q"><span class="n">4</span>真空ポンプとマニホールドゲージは、何をするために使いますか。</p>
+    <div class="a">配管内の<b>空気と水分を抜く（真空引き）</b>ため。マニホールドゲージで<b>真空到達と保持</b>を確認する。空気や水分が残ると能力低下・故障の原因になる。</div>
+    <p class="d">エアパージ（ガスで空気を押し出す方法）は<b>いまは原則しない</b>。冷媒を大気に放出することにもなります。真空引きは省略できない工程です。</p>
+  </div>
+  <div class="qa">
+    <p class="q"><span class="n">5</span>ドレンホースの役割と、勾配をつける理由を書いてください。</p>
+    <div class="a">役割＝<b>室内機で発生した水を屋外へ流す</b>。勾配＝<b>水は自然に流れるだけ</b>なので、下がり勾配がないと逆流・水漏れになる。途中で持ち上げない、たるませない。</div>
+    <p class="d">エアコンの水漏れ苦情の大半がドレンです。<b>虫の侵入防止（防虫キャップ）と、先端が水に浸からない</b>ことも確認します。</p>
+  </div>
+  <div class="qa">
+    <p class="q"><span class="n">6</span>エアコン1台分の部材を、思いつくだけ書き出してください。</p>
+    <div class="a">配管セット（2分3分・4mなど）、<b>ドレンホース</b>、貫通スリーブ、パテ、<b>配管化粧テープ</b>、テープ巻きの結束バンド、<b>据付板とビス</b>、室外機の置台（プラブロック等）、防振ゴム、電線（渡り線）、化粧カバー（必要なら）、コーキング。</div>
+    <p class="d">これを見ずに言えるようになると、<b>朝の積み込みが一人でできます</b>。ここが「ひとりで拾える」の中身です。</p>
+  </div>
+  <div class="qa">
+    <p class="q"><span class="n">7</span>配管テープ・スリーブ・パテは、それぞれ何のために使いますか。</p>
+    <div class="a"><b>配管テープ</b>＝配管と断熱材・ドレンをまとめて保護する。<b>スリーブ</b>＝壁の穴に入れて配管を保護し、壁を傷めない。<b>パテ</b>＝穴のすき間を埋めて<b>雨・虫・すきま風を防ぐ</b>。</div>
+    <p class="d">パテの詰め方が甘いと、数年後に<b>虫が入った・雨が入った</b>という連絡が来ます。見えない場所ほど丁寧に。</p>
+  </div>
+  <div class="qa">
+    <p class="q"><span class="n">8</span>工具と部材は、車のどこに載っていますか。</p>
+    <div class="a"><b>店で決めること。</b>工具箱・真空ポンプ・配管の定位置を決め、全員同じ場所に戻す。</div>
+    <p class="d">エアコンの繁忙期は、<b>探す時間が一日の仕事量を決めます</b>。定位置が決まっていれば、応援に来た人もすぐ動けます。</p>
+  </div>
+  <div class="qa">
+    <p class="q"><span class="n">9</span>コアドリルを使うとき、開ける前に確かめることを3つ。</p>
+    <div class="a">①<b>壁の中に柱・筋交い・配線・配管がないか</b>（下地探し・図面・コンセント位置から推測）②<b>反対側に何があるか</b>（家具・人・隣家）③<b>勾配（外側が下がる）と高さ</b>。加えて壁の材質と粉じん養生。</div>
+    <p class="d">穴あけは<b>やり直しがきかない作業</b>です。柱を切ると建物の問題、配線を切ると停電と修理。<b>迷ったら開ける前に先輩に確認。</b>ここで遠慮しないこと。</p>
+  </div>
+  <h2 class="rd">第2回（使う）</h2>
+  <div class="qa">
+    <p class="q"><span class="n">1</span>6畳用エアコン1台の新設。持っていく部材を全部書き出してください。</p>
+    <div class="a">配管セット2分3分（標準4m）、ドレンホース、据付板＋ビス、貫通スリーブ、パテ、配管化粧テープ、結束バンド、室外機置台と防振ゴム、渡り線（VVF 2.0-3Cなど機種指定）、電源が要れば専用回路の材料、コーキング、化粧カバー（見積次第）。</div>
+    <p class="d"><b>見積書と付き合わせて拾う</b>のが正解です。化粧カバーや電源工事は見積に入っているかどうかで持ち物が変わります。</p>
+  </div>
+  <div class="qa">
+    <p class="q"><span class="n">2</span>配管を4m延長します。追加で必要なものは何ですか。</p>
+    <div class="a">延長分の<b>ペアコイル（同サイズ）</b>、断熱材、ドレンホース、化粧テープ、固定用のサドル・バンド、必要なら<b>冷媒の追加チャージ</b>（機種の規定長を超える場合）と化粧カバー。</div>
+    <p class="d">配管が長いほど<b>能力が落ち、冷媒追加が必要</b>になることがあります。「延ばすだけ」ではないことを知っているかどうかが分かれ目です。</p>
+  </div>
+  <div class="qa">
+    <p class="q"><span class="n">3</span>フレア加工でやってはいけないことを2つ。</p>
+    <div class="a">①<b>切り口のバリを取らずに広げる</b>（銅の粉が入る・漏れの原因）②<b>寸法を守らない</b>（出しすぎ・短すぎ、傷や偏りのあるフレア）。加えて<b>ゴミや水分を入れたまま接続する</b>。</div>
+    <p class="d">フレアは<b>やり直しても数分</b>。少しでも怪しければ切り直します。「たぶん大丈夫」で締めた接続が、夏に効かない原因になります。</p>
+  </div>
+  <div class="qa">
+    <p class="q"><span class="n">4</span>真空引きは何分くらい行い、何を見て終わりと判断しますか。</p>
+    <div class="a">目安は<b>15分程度以上</b>（配管長や湿度で変わる）。判断は時間ではなく<b>ゲージが規定の真空度まで下がり、ポンプを止めてもしばらく戻らないこと</b>。戻る＝どこかに漏れがある。</div>
+    <p class="d">「時間で終わり」にしないのが職人です。<b>止めて放置して確認</b>する一手間が、翌年のガス欠を防ぎます。</p>
+  </div>
+  <div class="qa">
+    <p class="q"><span class="n">5</span>ガス漏れが疑われるとき、どこをどう確かめますか。</p>
+    <div class="a"><b>フレア接続部（室内機側・室外機側）</b>を中心に、ガス漏れ検知器または石けん水で確認。バルブのキャップ、サービスポートも。加えて<b>運転時の圧力と吹出温度</b>、配管の霜つき。</div>
+    <p class="d">新設直後の漏れは<b>ほぼフレア部</b>です。まずそこ。古い機の場合は本体内部や配管の腐食もあり得ます。</p>
+  </div>
+  <div class="qa">
+    <p class="q"><span class="n">6</span>2階の室内機、1階に室外機。配管はどう通しますか。気をつけることも。</p>
+    <div class="a">外壁に沿って配管を下ろし、<b>化粧カバーで保護</b>。<b>高低差の制限（機種ごとの許容高低差）</b>を確認。ドレンは自然勾配で流れる経路にする（流れないなら別ルートかドレンポンプ）。固定は1〜1.5m間隔程度。</div>
+    <p class="d">高低差と配管長は<b>据付説明書に上限</b>があります。超えると保証も効きません。見た目（カバーの通し方）も評価される部分です。</p>
+  </div>
+  <div class="qa">
+    <p class="q"><span class="n">7</span>室外機の置き方（置き台・壁掛け・二段置き）はどう選びますか。</p>
+    <div class="a"><b>置き場所のスペース・排水・振動・メンテのしやすさ</b>で選ぶ。地面が取れれば置台が基本。スペースがなければ壁掛けや二段。<b>吹出しの前をふさがない</b>、隣家に風と音が向かないようにする。</div>
+    <p class="d">安易な壁掛けは<b>振動と騒音の苦情</b>になります。将来の掃除や修理のしやすさまで考えて置けると一人前です。</p>
+  </div>
+  <div class="qa">
+    <p class="q"><span class="n">8</span>ドレンの水が出ないとき、まずどこを見ますか。</p>
+    <div class="a"><b>ドレンホースの詰まり（ゴミ・虫・スライム）</b>、先端が水に浸かっていないか、<b>途中で持ち上がっていないか・たるんでいないか</b>、勾配。室内機側のドレンパンの汚れも。</div>
+    <p class="d">室内に水が垂れる苦情は、ほとんどこれです。<b>ドレン詰まりは吸引で直ることが多い</b>ので、道具を車に積んでおくと即日解決できます。</p>
+  </div>
+  <div class="qa">
+    <p class="q"><span class="n">9</span>取付が終わったあと、お客様に必ず説明することを3つ。</p>
+    <div class="a">①<b>試運転を一緒に見てもらう</b>（冷える・音・水）②<b>フィルター掃除の場所と頻度</b>③<b>保証書と取扱説明書の置き場所、困ったときの連絡先</b>。あわせてリモコンのよく使うボタンだけ。</div>
+    <p class="d">ここまでが工事です。<b>取扱説明までが仕事</b>と決めています。3つ言って、アンケートを渡して、半券を持ち帰るところまでで完了です。</p>
+  </div>
+
+  <a class="back" href="kaito.html">← 回答編ポータルへ戻る</a>
+</div>
+<script>
+(function(){
+  var KEY="yahataKaitoAuth_v1", PIN="7860";
+  function reveal(){var g=document.getElementById("pinGate"); if(g) g.classList.add("hidden");}
+  window.checkPin=function(){
+    var v=(document.getElementById("pin").value||"").trim();
+    if(v===PIN){ try{localStorage.setItem(KEY,"1");}catch(e){} reveal(); }
+    else{ document.getElementById("pinErr").textContent="PINが違います"; }
+  };
+  var ok=false; try{ ok=localStorage.getItem(KEY)==="1"; }catch(e){}
+  if(ok) reveal();
+  else{ var i=document.getElementById("pin");
+    if(i){ i.addEventListener("keydown",function(e){ if(e.key==="Enter") window.checkPin(); });
+      setTimeout(function(){ try{i.focus();}catch(e){} },100); } }
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>テーマ2 安全と養生・腰袋｜回答編</title>
+<style>
+  :root{--paper:#f4f7fa;--card:#fff;--ink:#1c2530;--ink-soft:#4a5a6a;--line:#d7e0e8;
+    --sun:#f0a500;--sv:#164a7a;--kj:#2e7d32;--acc:var(--sv)}
+  @media (prefers-color-scheme:dark){:root{--paper:#10161d;--card:#1a2028;--ink:#e8edf2;--ink-soft:#a9b6c2;--line:#2c3844}}
+  :root[data-theme="dark"]{--paper:#10161d;--card:#1a2028;--ink:#e8edf2;--ink-soft:#a9b6c2;--line:#2c3844}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--paper);color:var(--ink);line-height:1.8;padding:28px 16px 70px;
+    font-family:"Yu Gothic Medium","Yu Gothic","Hiragino Kaku Gothic ProN","Noto Sans JP","Meiryo",sans-serif}
+  .wrap{max-width:860px;margin:0 auto}
+  .pt-head{color:#fff;border-radius:10px;padding:24px 26px;margin:0 0 18px}
+  .pt-head .e{font-size:12px;letter-spacing:.14em;opacity:.75;margin:0 0 6px}
+  .pt-head h1{font-size:22px;margin:0 0 6px;line-height:1.4}
+  .pt-head .s{font-size:13px;opacity:.88;margin:0}
+  .note{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--sun);
+    border-radius:10px;padding:14px 18px;margin:0 0 20px;font-size:13.5px;color:var(--ink-soft)}
+  h2.rd{font-size:16px;margin:34px 0 14px;padding:8px 14px;border-radius:8px;background:var(--acc);color:#fff}
+  .qa{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 18px;margin:0 0 12px}
+  .qa .q{font-size:15px;font-weight:700;margin:0 0 10px;display:flex;gap:9px}
+  .qa .q .n{flex:0 0 auto;width:24px;height:24px;border-radius:50%;background:var(--acc);color:#fff;
+    font-size:12px;display:flex;align-items:center;justify-content:center}
+  .qa .a{background:rgba(240,165,0,.10);border-left:4px solid var(--sun);border-radius:8px;
+    padding:10px 14px;font-size:14px;margin:0 0 10px}
+  .qa .a b{color:var(--ink)}
+  .qa .d{font-size:13px;color:var(--ink-soft);margin:0;padding-left:2px}
+  .qa .d b{color:var(--ink)}
+  .back{display:inline-block;margin-top:28px;font-size:13px;color:var(--ink-soft);text-decoration:none}
+  #pinGate{position:fixed;inset:0;z-index:9999;background:var(--paper);display:flex;align-items:center;justify-content:center;padding:20px}
+  #pinGate.hidden{display:none}
+  #pinGate .box{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:30px 28px;text-align:center;max-width:320px;width:100%}
+  #pinGate input{font-size:24px;letter-spacing:.35em;text-align:center;padding:10px 8px;width:170px;
+    border:1px solid var(--line);border-radius:10px;background:var(--paper);color:var(--ink);font-family:inherit}
+  #pinGate button{font-family:inherit;font-size:15px;font-weight:700;margin-top:12px;padding:10px 28px;
+    border:none;border-radius:8px;background:var(--acc);color:#fff;cursor:pointer}
+  #pinGate .err{color:#c94f4f;font-size:12px;height:16px;margin:6px 0}
+  @media print{@page{size:A4 portrait;margin:12mm 10mm}body{background:#fff;padding:0}
+    #pinGate,.back{display:none !important}.qa{page-break-inside:avoid}
+    .pt-head,h2.rd,.qa .a{-webkit-print-color-adjust:exact;print-color-adjust:exact}}
+  :root{--acc:#2e7d32}
+</style>
+</head>
+<body>
+<div id="pinGate"><div class="box">
+  <div style="font-size:32px">🔒</div>
+  <p style="font-weight:700;margin:8px 0 2px">回答編（社内用）</p>
+  <p style="font-size:12.5px;color:var(--ink-soft);margin:0 0 14px">4桁のPINを入力してください</p>
+  <input id="pin" type="tel" inputmode="numeric" maxlength="4" placeholder="••••">
+  <div class="err" id="pinErr"></div>
+  <button type="button" onclick="checkPin()">入る</button>
+</div></div>
+<div class="wrap">
+  <div class="pt-head" style="background:linear-gradient(135deg,#2e7d32 0%,#1b5e20 100%)">
+    <p class="e">回答編（社内用）</p>
+    <h1>テーマ2 安全と養生・腰袋</h1>
+    <p class="s">工事スタッフ／第1回・第2回</p>
+  </div>
+  <div class="note">この解答は打合せ用です。<b>車の積載や店のルールに関わるものは「店で決めること」</b>としています。工法や数値は現場と社内ルールで最終確認してください。</div>
+  <h2 class="rd">第1回（知る）</h2>
+  <div class="qa">
+    <p class="q"><span class="n">1</span>腰袋に入っている工具を、全部書き出してください。</p>
+    <div class="a"><b>店で決めること。</b>一般的には：プラス／マイナスドライバー、電工ナイフまたはケーブルストリッパー、ペンチ、ニッパー、圧着ペンチ、メジャー、検電器、ペン、カッター、ビス入れ。</div>
+    <p class="d">腰袋は<b>「よく使う順」に入れる</b>のが基本です。全部入れると重くて動けません。自分の腰袋を写真に撮っておくと、忘れ物のチェックにも使えます。</p>
+  </div>
+  <div class="qa">
+    <p class="q"><span class="n">2</span>そのうち3つを選んで、何に使うか書いてください。</p>
+    <div class="a">例：<b>検電器</b>＝電気が来ているか確認（触る前に必ず）。<b>ケーブルストリッパー</b>＝被覆をむく。<b>圧着ペンチ</b>＝リングスリーブで電線をつなぐ。</div>
+    <p class="d">名前を言えるだけでは足りません。<b>「何のために持っているか」</b>まで言えて、はじめて道具を分かっていることになります。</p>
+  </div>
+  <div class="qa">
+    <p class="q"><span class="n">3</span>脚立とはしごの違いと、使い分けを書いてください。</p>
+    <div class="a"><b>脚立</b>＝自立して天板まで上がれる。室内作業向き。<b>はしご</b>＝立てかけて使う。屋根やベランダなど高いところへの昇降に使う（作業台ではない）。<b>はしごの上で作業しない。</b></div>
+    <p class="d">はしごの上で無理な体勢になるのが、事故のいちばん多い形です。<b>「登るための道具」と「作業する道具」は別</b>と覚えてください。</p>
+  </div>
+  <div class="qa">
+    <p class="q"><span class="n">4</span>いま使っている養生材を、全部書き出してください。</p>
+    <div class="a"><b>店で決めること。</b>一般的には：養生マット（玄関・通路）、ブルーシート、養生テープ、プラダン、コーナー材、脚立の脚カバー、ウエス。</div>
+    <p class="d">これも実物を並べて確認する問題です。<b>足りないものに気づいたら、その場で補充</b>。養生材が足りない現場は、必ずどこかを傷つけます。</p>
+  </div>
+  <div class="qa">
+    <p class="q"><span class="n">5</span>養生材は、車と店のどこにありますか。</p>
+    <div class="a"><b>店で決めること。</b>置き場所と、戻す場所を全員で同じにする。</div>
+    <p class="d">養生材は「取りに戻る時間」がいちばんもったいない。<b>定位置が決まっていれば、朝の積み込みが3分で終わります。</b></p>
+  </div>
+  <div class="qa">
+    <p class="q"><span class="n">6</span>ヘルメットと安全帯（ハーネス）は、どんな場面で使いますか。</p>
+    <div class="a"><b>ヘルメット</b>＝天井裏・屋根・高所・頭上作業のある現場。<b>フルハーネス型安全帯</b>＝高さ2m以上で墜落のおそれがある作業（屋根・ベランダの外側・足場上）。</div>
+    <p class="d">「短時間だから」でつけない人が事故に遭います。<b>お客様も見ています。</b>安全具をつけている職人は、それだけで信用されます。</p>
+  </div>
+  <div class="qa">
+    <p class="q"><span class="n">7</span>脚立でやってはいけないことを3つ。</p>
+    <div class="a">①<b>天板に乗る・またぐ</b>②<b>開き止め金具をかけずに使う</b>③<b>身を乗り出す（体の中心を脚立の外に出す）</b>。加えて：脚立の上での移動、不安定な床での使用、2人で同時に乗る。</div>
+    <p class="d">「ちょっとだけ」が全部です。<b>脚立を動かす手間を惜しんだ人が落ちます。</b>1回動かせば5秒、落ちたら仕事が止まります。</p>
+  </div>
+  <div class="qa">
+    <p class="q"><span class="n">8</span>お客様の家に入ってから、どの順番で養生していきますか。</p>
+    <div class="a"><b>玄関 → 通路（廊下・階段）→ 作業する部屋 → 壁や家具の角</b>。搬入経路を先に押さえてから、作業場所を養生する。</div>
+    <p class="d">順番が大事なのは、<b>荷物を入れる前に通路が終わっていないと意味がない</b>から。お客様は「入ってすぐ養生を敷く姿」を見ています。ここで印象が決まります。</p>
+  </div>
+  <div class="qa">
+    <p class="q"><span class="n">9</span>使い終わった養生材は、どうしますか。</p>
+    <div class="a"><b>店で決めること。</b>再利用するもの（マット・プラダン）は汚れを取って畳んで定位置へ、使い捨て（テープ・シート）は分別して処分。<b>破れたものは補充を伝える。</b></div>
+    <p class="d">汚れたまま積んでおくと、次の現場でお客様の床を汚します。<b>片付けまでが養生</b>です。</p>
+  </div>
+  <h2 class="rd">第2回（使う）</h2>
+  <div class="qa">
+    <p class="q"><span class="n">1</span>エアコン取付が1件。持っていく養生材を書き出してください。</p>
+    <div class="a">玄関マット、通路用の養生マットまたはブルーシート、養生テープ、脚立の脚カバー、室内機の下に敷くシート、ウエス、ゴミ袋。<b>壁の穴あけがあるなら粉じん養生（シート＋掃除機）。</b></div>
+    <p class="d">エアコン工事は<b>穴あけの粉じん</b>がいちばん厄介です。ここを養生できる人は、掃除の時間も短くて済みます。</p>
+  </div>
+  <div class="qa">
+    <p class="q"><span class="n">2</span>玄関からリビングまで室内機を運びます。どこを養生しますか。</p>
+    <div class="a">玄関の上がり框、廊下の床、<b>曲がり角の壁と柱</b>、階段があれば段鼻、ドア枠、通り道の家具の角。</div>
+    <p class="d">傷はほとんど<b>曲がり角</b>でつきます。まっすぐな廊下より、角を重点的に。「ここだけは」と思うところを先に押さえます。</p>
+  </div>
+  <div class="qa">
+    <p class="q"><span class="n">3</span>雨の日の現場。追加で必要になるものは何ですか。</p>
+    <div class="a">玄関用の大きめマットとタオル、<b>足元を拭くウエス</b>、ブルーシート（材料の雨よけ）、替えの靴下や靴カバー、傘立てまわりの配慮。室外機の作業は<b>感電と滑りに注意</b>。</div>
+    <p class="d">雨の日は<b>お客様が家の中の汚れを気にしています</b>。足元をきれいにして入るだけで、その日の印象が変わります。</p>
+  </div>
+  <div class="qa">
+    <p class="q"><span class="n">4</span>2階のベランダに室外機を置きます。安全のために用意するもの。</p>
+    <div class="a"><b>フルハーネス型安全帯と取付ポイントの確認</b>、ヘルメット、滑りにくい靴、脚立（ベランダ内で高さが要る場合）、工具の落下防止（コード・工具袋）、下の通行止め・声かけ。</div>
+    <p class="d">落とすと下にいる人に当たります。<b>工具の落下防止まで含めて安全</b>です。ベランダの手すりに寄りかからないこと。</p>
+  </div>
+  <div class="qa">
+    <p class="q"><span class="n">5</span>家具や床を傷つけそうなとき、お客様にどう声をかけますか。</p>
+    <div class="a"><b>「こちらのタンス、少しだけ動かしてもよろしいですか」「傷が心配なので、先に養生させてください」</b>と<b>先に断る</b>。動かしたものは元に戻す。</div>
+    <p class="d">黙って動かして戻し忘れる、が苦情のもとです。<b>先に一言、終わったら報告。</b>これだけでクレームはほぼ消えます。</p>
+  </div>
+  <div class="qa">
+    <p class="q"><span class="n">6</span>脚立を立てる前に確認することを3つ。</p>
+    <div class="a">①<b>床が水平で安定しているか</b>（畳・カーペット・段差）②<b>開き止め金具がかかっているか</b>③<b>頭上と周囲（照明・カーテンレール・人の通り道）</b>。</div>
+    <p class="d">この3つを毎回やる人は落ちません。<b>慣れた頃がいちばん危ない</b>ので、声に出して確認するくらいでちょうどいいです。</p>
+  </div>
+  <div class="qa">
+    <p class="q"><span class="n">7</span>養生を外すとき、気をつけることは何ですか。</p>
+    <div class="a"><b>テープの糊残り</b>（時間が経つと取れにくい・剥がすと塗装が剥がれることがある）、ゴミやビスの取り残し、<b>外したあとに掃除機をかける</b>、動かした家具を元に戻す。</div>
+    <p class="d">養生を外した後の姿が、お客様の記憶に残ります。<b>来たときよりきれいにして帰る</b>のが理想です。</p>
+  </div>
+  <div class="qa">
+    <p class="q"><span class="n">8</span>腰袋の中身を減らすとしたら、何を残しますか。理由も。</p>
+    <div class="a">例：<b>ドライバー・ペンチ・ケーブルストリッパー・検電器・メジャー</b>。理由＝<b>どの現場でも必ず使う</b>から。使用頻度の低いものは工具箱へ。</div>
+    <p class="d">腰袋は重いと動きが鈍り、脚立の上で危険です。<b>「よく使うものだけ腰に、あとは箱に」</b>が正解。答えは人によって違ってよいですが、理由が言えることが大事です。</p>
+  </div>
+  <div class="qa">
+    <p class="q"><span class="n">9</span>養生材やビスの補充が必要だと気づいたら、誰にどう伝えますか。</p>
+    <div class="a"><b>店で決めること。</b>気づいた人がその場で伝える。伝える先と方法（誰に・LINEか在庫表か）を一つに決めておく。</div>
+    <p class="d">「あとで言おう」は必ず忘れます。<b>気づいた瞬間に送る</b>のが唯一続く方法です。</p>
+  </div>
+
+  <a class="back" href="kaito.html">← 回答編ポータルへ戻る</a>
+</div>
+<script>
+(function(){
+  var KEY="yahataKaitoAuth_v1", PIN="7860";
+  function reveal(){var g=document.getElementById("pinGate"); if(g) g.classList.add("hidden");}
+  window.checkPin=function(){
+    var v=(document.getElementById("pin").value||"").trim();
+    if(v===PIN){ try{localStorage.setItem(KEY,"1");}catch(e){} reveal(); }
+    else{ document.getElementById("pinErr").textContent="PINが違います"; }
+  };
+  var ok=false; try{ ok=localStorage.getItem(KEY)==="1"; }catch(e){}
+  if(ok) reveal();
+  else{ var i=document.getElementById("pin");
+    if(i){ i.addEventListener("keydown",function(e){ if(e.key==="Enter") window.checkPin(); });
+      setTimeout(function(){ try{i.focus();}catch(e){} },100); } }
+})();
+</script>
+</body>
+</html>

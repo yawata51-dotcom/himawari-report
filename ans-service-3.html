@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>テーマ3 冷蔵庫｜回答編</title>
+<style>
+  :root{--paper:#f4f7fa;--card:#fff;--ink:#1c2530;--ink-soft:#4a5a6a;--line:#d7e0e8;
+    --sun:#f0a500;--sv:#164a7a;--kj:#2e7d32;--acc:var(--sv)}
+  @media (prefers-color-scheme:dark){:root{--paper:#10161d;--card:#1a2028;--ink:#e8edf2;--ink-soft:#a9b6c2;--line:#2c3844}}
+  :root[data-theme="dark"]{--paper:#10161d;--card:#1a2028;--ink:#e8edf2;--ink-soft:#a9b6c2;--line:#2c3844}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--paper);color:var(--ink);line-height:1.8;padding:28px 16px 70px;
+    font-family:"Yu Gothic Medium","Yu Gothic","Hiragino Kaku Gothic ProN","Noto Sans JP","Meiryo",sans-serif}
+  .wrap{max-width:860px;margin:0 auto}
+  .pt-head{color:#fff;border-radius:10px;padding:24px 26px;margin:0 0 18px}
+  .pt-head .e{font-size:12px;letter-spacing:.14em;opacity:.75;margin:0 0 6px}
+  .pt-head h1{font-size:22px;margin:0 0 6px;line-height:1.4}
+  .pt-head .s{font-size:13px;opacity:.88;margin:0}
+  .note{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--sun);
+    border-radius:10px;padding:14px 18px;margin:0 0 20px;font-size:13.5px;color:var(--ink-soft)}
+  h2.rd{font-size:16px;margin:34px 0 14px;padding:8px 14px;border-radius:8px;background:var(--acc);color:#fff}
+  .qa{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 18px;margin:0 0 12px}
+  .qa .q{font-size:15px;font-weight:700;margin:0 0 10px;display:flex;gap:9px}
+  .qa .q .n{flex:0 0 auto;width:24px;height:24px;border-radius:50%;background:var(--acc);color:#fff;
+    font-size:12px;display:flex;align-items:center;justify-content:center}
+  .qa .a{background:rgba(240,165,0,.10);border-left:4px solid var(--sun);border-radius:8px;
+    padding:10px 14px;font-size:14px;margin:0 0 10px}
+  .qa .a b{color:var(--ink)}
+  .qa .d{font-size:13px;color:var(--ink-soft);margin:0;padding-left:2px}
+  .qa .d b{color:var(--ink)}
+  .back{display:inline-block;margin-top:28px;font-size:13px;color:var(--ink-soft);text-decoration:none}
+  #pinGate{position:fixed;inset:0;z-index:9999;background:var(--paper);display:flex;align-items:center;justify-content:center;padding:20px}
+  #pinGate.hidden{display:none}
+  #pinGate .box{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:30px 28px;text-align:center;max-width:320px;width:100%}
+  #pinGate input{font-size:24px;letter-spacing:.35em;text-align:center;padding:10px 8px;width:170px;
+    border:1px solid var(--line);border-radius:10px;background:var(--paper);color:var(--ink);font-family:inherit}
+  #pinGate button{font-family:inherit;font-size:15px;font-weight:700;margin-top:12px;padding:10px 28px;
+    border:none;border-radius:8px;background:var(--acc);color:#fff;cursor:pointer}
+  #pinGate .err{color:#c94f4f;font-size:12px;height:16px;margin:6px 0}
+  @media print{@page{size:A4 portrait;margin:12mm 10mm}body{background:#fff;padding:0}
+    #pinGate,.back{display:none !important}.qa{page-break-inside:avoid}
+    .pt-head,h2.rd,.qa .a{-webkit-print-color-adjust:exact;print-color-adjust:exact}}
+  :root{--acc:#164a7a}
+</style>
+</head>
+<body>
+<div id="pinGate"><div class="box">
+  <div style="font-size:32px">🔒</div>
+  <p style="font-weight:700;margin:8px 0 2px">回答編（社内用）</p>
+  <p style="font-size:12.5px;color:var(--ink-soft);margin:0 0 14px">4桁のPINを入力してください</p>
+  <input id="pin" type="tel" inputmode="numeric" maxlength="4" placeholder="••••">
+  <div class="err" id="pinErr"></div>
+  <button type="button" onclick="checkPin()">入る</button>
+</div></div>
+<div class="wrap">
+  <div class="pt-head" style="background:linear-gradient(135deg,#1a3a5c 0%,#12283f 100%)">
+    <p class="e">回答編（社内用）</p>
+    <h1>テーマ3 冷蔵庫</h1>
+    <p class="s">サービススタッフ／第1回・第2回</p>
+  </div>
+  <div class="note">この解答は打合せ用です。<b>店の商品や置き場所に関わるものは「店で決めること」</b>としています。数字はカタログで最新を確認してください。</div>
+  <h2 class="rd">第1回（知る）</h2>
+  <div class="qa">
+    <p class="q"><span class="n">1</span>いま扱っている冷蔵庫を、容量の大きい方から書き出してください。</p>
+    <div class="a"><b>店で決めること。</b>500L台／400L台／300L台／200L台のように<b>容量帯ごとに</b>言えれば合格。</div>
+    <p class="d">冷蔵庫は容量で決まる商品です。型番より<b>「何Lクラスがあるか」</b>を先に覚えると、お客様の家族構成からすぐ出せます。</p>
+  </div>
+  <div class="qa">
+    <p class="q"><span class="n">2</span>容量（L）のラインナップと、何人家族の目安かを書いてください。</p>
+    <div class="a">目安の計算＝<b>70L×人数＋常備品100L＋予備70L</b>。2人なら約310L、3人なら約380L、4人なら約450L。</div>
+    <p class="d">この式を覚えておくと、その場で計算して見せられます。数字を出せる人は信用されます。ただし<b>まとめ買いをする家は1ランク上</b>。</p>
+  </div>
+  <div class="qa">
+    <p class="q"><span class="n">3</span>それぞれの「売り」を、1つずつ書いてください。</p>
+    <div class="a">上位＝<b>はやうま冷凍・微凍結パーシャル・野菜室が真ん中</b>、中位＝その一部、普及＝<b>基本性能で価格が手頃</b>。</div>
+    <p class="d">冷蔵庫の上位機能は「冷凍の質」と「野菜の鮮度」に集まっています。<b>作り置きをするか、野菜をよく使うか</b>を聞けば決まります。</p>
+  </div>
+  <div class="qa">
+    <p class="q"><span class="n">4</span>野菜室が真ん中のタイプと、冷凍室が真ん中のタイプ。違いは何ですか。</p>
+    <div class="a"><b>真ん中＝いちばん出し入れしやすい位置</b>。野菜をよく使う家は野菜室が真ん中、冷凍食品や作り置き中心の家は冷凍室が真ん中。</div>
+    <p class="d">これは<b>暮らし方で決まる</b>典型です。「どちらをよく開けますか？」の一言で決まります。カタログを見せるより早い。</p>
+  </div>
+  <div class="qa">
+    <p class="q"><span class="n">5</span>はやうま冷凍・微凍結など、いまの冷凍機能を一言で説明してください。</p>
+    <div class="a">はやうま冷凍＝<b>急速に凍らせて味が落ちにくい</b>（作り置き・肉のまとめ買い向き）。微凍結パーシャル＝<b>約−3℃で保存し、解凍せずそのまま切れる</b>。</div>
+    <p class="d">「冷凍がきれい」では伝わりません。<b>「まとめ買いした肉を小分けに」「解凍しないで切れます」</b>と、台所の場面に置き換えて話します。</p>
+  </div>
+  <div class="qa">
+    <p class="q"><span class="n">6</span>観音開きと片開き。それぞれ向いている置き場所は。</p>
+    <div class="a"><b>観音開き</b>＝前のスペースが狭くても開けやすい。左右どちらからも出せる。<b>片開き</b>＝開口が広く大きな物を出しやすい。<b>壁と反対に開くもの</b>を選ぶ（右開き・左開きの確認）。</div>
+    <p class="d">片開きの向きを間違えると使えません。<b>現調で必ず「どちら側に壁があるか」を見る。</b>事故になりやすい要注意ポイントです。</p>
+  </div>
+  <div class="qa">
+    <p class="q"><span class="n">7</span>搬入で確かめる寸法を3つ書いてください。</p>
+    <div class="a">①<b>玄関・廊下・曲がり角の幅</b>（本体幅＋約10cm）②<b>階段や段差</b>③<b>設置場所の幅・奥行・高さ（放熱スペース含む）</b>。加えて扉の開閉スペース。</div>
+    <p class="d">冷蔵庫は入らなかったら終わりです。<b>必ずメジャーで測る。</b>「たぶん入ります」で運ぶと、その日一日が無駄になります。</p>
+  </div>
+  <div class="qa">
+    <p class="q"><span class="n">8</span>年間の電気代の目安は、カタログのどこを見れば分かりますか。</p>
+    <div class="a"><b>年間消費電力量（kWh/年）</b>×31円。統一省エネラベルの星の数も目安。</div>
+    <p class="d">冷蔵庫は<b>24時間365日動く</b>ので、電気代の差が家電の中でいちばん出ます。買い替えの説得材料として強い数字です。</p>
+  </div>
+  <div class="qa">
+    <p class="q"><span class="n">9</span>去年のモデルと今年のモデル、何が変わりましたか。</p>
+    <div class="a"><b>店で確認。</b>カタログの新機能欄から1〜2点。</div>
+    <p class="d">冷蔵庫は数年単位でしか大きく変わりません。むしろ<b>10年前との差</b>を言えるほうが現場では役に立ちます。</p>
+  </div>
+  <h2 class="rd">第2回（使う）</h2>
+  <div class="qa">
+    <p class="q"><span class="n">1</span>上のクラスと普及クラス。値段の差は何の差ですか。</p>
+    <div class="a">①<b>省エネ性能</b>②<b>冷凍の質（はやうま・微凍結）</b>③<b>野菜室の鮮度保持</b>④自動製氷・静音・扉の素材。<b>まとめると「電気代・食材の持ち・使いやすさ」。</b></div>
+    <p class="d">冷蔵庫は10年以上使う商品です。<b>1日あたりに直すと差は小さい</b>という言い方が効きます。</p>
+  </div>
+  <div class="qa">
+    <p class="q"><span class="n">2</span>ご夫婦お二人。どのくらいの容量をすすめて、どう説明しますか。</p>
+    <div class="a">計算では約310L。ただし<b>まとめ買い・作り置きをするなら400L台</b>。「小さくして入らないより、少し余裕があるほうが電気代も安く済みます」。</div>
+    <p class="d">容量が小さすぎると詰め込みになり、<b>冷えが悪くなって電気代も上がります</b>。この理屈を知っていると、大きめをすすめても押し売りになりません。</p>
+  </div>
+  <div class="qa">
+    <p class="q"><span class="n">3</span>お子さんが独立してご夫婦だけになった家。買い替えで気をつけることは。</p>
+    <div class="a">人数だけで小さくしない。<b>買い物の頻度・冷凍の使い方・お孫さんの帰省</b>を聞く。設置スペースは変わらないので、同等サイズで省エネ機種という選択もある。</div>
+    <p class="d">「二人だから小さく」は失敗のもとです。<b>暮らし方を聞いてから。</b>ここを聞ける人が聞き上手です。</p>
+  </div>
+  <div class="qa">
+    <p class="q"><span class="n">4</span>「まだ動いているから」と言われたとき、どう伝えますか。</p>
+    <div class="a"><b>「壊れてからだと、選ぶ時間がありません」</b>。真夏に止まると食材が全部だめになる。動いているうちに見ておくと、納得して選べる。あわせて10年前との電気代の差。</div>
+    <p class="d">不安を煽らず、<b>事実だけ</b>を伝えます。「今すぐ買ってください」ではなく「見ておきましょう」。これが壊れる前に気づく仕事です。</p>
+  </div>
+  <div class="qa">
+    <p class="q"><span class="n">5</span>15年使った冷蔵庫。電気代はどのくらい変わると言えますか。</p>
+    <div class="a">機種によるが<b>年間消費電力量が半分以下になっている例も多い</b>。カタログの数字で今の機種と比べ、年間いくら・10年でいくらと出す。</div>
+    <p class="d">ざっくりでも<b>数字で言う</b>。「かなり安くなりますよ」では動きません。カタログを見ながら一緒に計算するのがいちばん効きます。</p>
+  </div>
+  <div class="qa">
+    <p class="q"><span class="n">6</span>「冷えが弱い気がする」と電話。伺う前に聞くことを3つ。</p>
+    <div class="a">①<b>冷蔵室と冷凍室、どちらが冷えないか</b>②<b>いつからか</b>③<b>詰め込みすぎていないか・ドアパッキンは切れていないか</b>。加えて背面の放熱スペース、部屋の温度、異音。</div>
+    <p class="d">冷凍は冷えるのに冷蔵だけ弱い＝冷気の通り道や詰めすぎ。<b>両方ぬるい＝故障の可能性。</b>電話で切り分けると、部品や代替機の準備ができます。</p>
+  </div>
+  <div class="qa">
+    <p class="q"><span class="n">7</span>搬入できるか不安な家。現地で何を測って、どう判断しますか。</p>
+    <div class="a">玄関・廊下・曲がり角の幅、階段の幅と天井、設置場所の幅・奥行・高さ、扉の開閉。<b>本体幅＋約10cmが通るか</b>。写真も撮っておく。無理ならクレーンや窓からの搬入を検討。</div>
+    <p class="d">現調の写真は<b>あとで工事スタッフと相談する材料</b>になります。撮っておけば、当日「聞いていない」がなくなります。</p>
+  </div>
+  <div class="qa">
+    <p class="q"><span class="n">8</span>古い冷蔵庫のリサイクルについて、費用も含めて説明してください。</p>
+    <div class="a">家電リサイクル法の対象。<b>リサイクル料金＋収集運搬費</b>。目安は170L以下が約3,740円、171L以上が約4,730円、収集運搬費は買い替えで3,300円。<b>金額は見積システムの最新設定で確認。</b></div>
+    <p class="d">冷蔵庫は金額が大きめです。<b>見積のときに必ず口に出す。</b>あとから言うと、金額以上に信用を失います。</p>
+  </div>
+  <div class="qa">
+    <p class="q"><span class="n">9</span>配達の日、お客様に必ず伝えることを3つ。</p>
+    <div class="a">①<b>庫内が冷えるまで数時間かかる</b>（食材はすぐ入れない）②<b>製氷の最初の氷は捨てる</b>③<b>ドアの開き方・水平・放熱スペース</b>と保証書の置き場所。※横倒しで運んだ場合は電源を入れるまで時間を置く。</div>
+    <p class="d">ここまで言って配達完了です。<b>「冷えない」という電話の多くは、この説明をしていないだけ。</b>3つ言うだけで、その電話がなくなります。</p>
+  </div>
+
+  <a class="back" href="kaito.html">← 回答編ポータルへ戻る</a>
+</div>
+<script>
+(function(){
+  var KEY="yahataKaitoAuth_v1", PIN="7860";
+  function reveal(){var g=document.getElementById("pinGate"); if(g) g.classList.add("hidden");}
+  window.checkPin=function(){
+    var v=(document.getElementById("pin").value||"").trim();
+    if(v===PIN){ try{localStorage.setItem(KEY,"1");}catch(e){} reveal(); }
+    else{ document.getElementById("pinErr").textContent="PINが違います"; }
+  };
+  var ok=false; try{ ok=localStorage.getItem(KEY)==="1"; }catch(e){}
+  if(ok) reveal();
+  else{ var i=document.getElementById("pin");
+    if(i){ i.addEventListener("keydown",function(e){ if(e.key==="Enter") window.checkPin(); });
+      setTimeout(function(){ try{i.focus();}catch(e){} },100); } }
+})();
+</script>
+</body>
+</html>

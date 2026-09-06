@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>テーマ2 エアコン｜回答編</title>
+<style>
+  :root{--paper:#f4f7fa;--card:#fff;--ink:#1c2530;--ink-soft:#4a5a6a;--line:#d7e0e8;
+    --sun:#f0a500;--sv:#164a7a;--kj:#2e7d32;--acc:var(--sv)}
+  @media (prefers-color-scheme:dark){:root{--paper:#10161d;--card:#1a2028;--ink:#e8edf2;--ink-soft:#a9b6c2;--line:#2c3844}}
+  :root[data-theme="dark"]{--paper:#10161d;--card:#1a2028;--ink:#e8edf2;--ink-soft:#a9b6c2;--line:#2c3844}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--paper);color:var(--ink);line-height:1.8;padding:28px 16px 70px;
+    font-family:"Yu Gothic Medium","Yu Gothic","Hiragino Kaku Gothic ProN","Noto Sans JP","Meiryo",sans-serif}
+  .wrap{max-width:860px;margin:0 auto}
+  .pt-head{color:#fff;border-radius:10px;padding:24px 26px;margin:0 0 18px}
+  .pt-head .e{font-size:12px;letter-spacing:.14em;opacity:.75;margin:0 0 6px}
+  .pt-head h1{font-size:22px;margin:0 0 6px;line-height:1.4}
+  .pt-head .s{font-size:13px;opacity:.88;margin:0}
+  .note{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--sun);
+    border-radius:10px;padding:14px 18px;margin:0 0 20px;font-size:13.5px;color:var(--ink-soft)}
+  h2.rd{font-size:16px;margin:34px 0 14px;padding:8px 14px;border-radius:8px;background:var(--acc);color:#fff}
+  .qa{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 18px;margin:0 0 12px}
+  .qa .q{font-size:15px;font-weight:700;margin:0 0 10px;display:flex;gap:9px}
+  .qa .q .n{flex:0 0 auto;width:24px;height:24px;border-radius:50%;background:var(--acc);color:#fff;
+    font-size:12px;display:flex;align-items:center;justify-content:center}
+  .qa .a{background:rgba(240,165,0,.10);border-left:4px solid var(--sun);border-radius:8px;
+    padding:10px 14px;font-size:14px;margin:0 0 10px}
+  .qa .a b{color:var(--ink)}
+  .qa .d{font-size:13px;color:var(--ink-soft);margin:0;padding-left:2px}
+  .qa .d b{color:var(--ink)}
+  .back{display:inline-block;margin-top:28px;font-size:13px;color:var(--ink-soft);text-decoration:none}
+  #pinGate{position:fixed;inset:0;z-index:9999;background:var(--paper);display:flex;align-items:center;justify-content:center;padding:20px}
+  #pinGate.hidden{display:none}
+  #pinGate .box{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:30px 28px;text-align:center;max-width:320px;width:100%}
+  #pinGate input{font-size:24px;letter-spacing:.35em;text-align:center;padding:10px 8px;width:170px;
+    border:1px solid var(--line);border-radius:10px;background:var(--paper);color:var(--ink);font-family:inherit}
+  #pinGate button{font-family:inherit;font-size:15px;font-weight:700;margin-top:12px;padding:10px 28px;
+    border:none;border-radius:8px;background:var(--acc);color:#fff;cursor:pointer}
+  #pinGate .err{color:#c94f4f;font-size:12px;height:16px;margin:6px 0}
+  @media print{@page{size:A4 portrait;margin:12mm 10mm}body{background:#fff;padding:0}
+    #pinGate,.back{display:none !important}.qa{page-break-inside:avoid}
+    .pt-head,h2.rd,.qa .a{-webkit-print-color-adjust:exact;print-color-adjust:exact}}
+  :root{--acc:#164a7a}
+</style>
+</head>
+<body>
+<div id="pinGate"><div class="box">
+  <div style="font-size:32px">🔒</div>
+  <p style="font-weight:700;margin:8px 0 2px">回答編（社内用）</p>
+  <p style="font-size:12.5px;color:var(--ink-soft);margin:0 0 14px">4桁のPINを入力してください</p>
+  <input id="pin" type="tel" inputmode="numeric" maxlength="4" placeholder="••••">
+  <div class="err" id="pinErr"></div>
+  <button type="button" onclick="checkPin()">入る</button>
+</div></div>
+<div class="wrap">
+  <div class="pt-head" style="background:linear-gradient(135deg,#1a3a5c 0%,#12283f 100%)">
+    <p class="e">回答編（社内用）</p>
+    <h1>テーマ2 エアコン</h1>
+    <p class="s">サービススタッフ／第1回・第2回</p>
+  </div>
+  <div class="note">この解答は打合せ用です。<b>店の商品や置き場所に関わるものは「店で決めること」</b>としています。数字はカタログで最新を確認してください。</div>
+  <h2 class="rd">第1回（知る）</h2>
+  <div class="qa">
+    <p class="q"><span class="n">1</span>いま扱っているエアコンのシリーズを、上のクラスから順に書き出してください。</p>
+    <div class="a"><b>店で決めること。</b>現行カタログのクラス構成を上から順に、<b>クラス名＋何が付いているか</b>で。</div>
+    <p class="d">エアコンはクラスごとに「付いている機能」がはっきり分かれます。上位＝お掃除・換気・ナノイーX・センサー、中位＝その一部、普及＝基本性能。この並びが頭に入ると説明が速くなります。</p>
+  </div>
+  <div class="qa">
+    <p class="q"><span class="n">2</span>畳数のラインナップを、小さい方から書いてください。</p>
+    <div class="a">6畳(2.2kW)／8畳(2.5)／10畳(2.8)／12畳(3.6)／14畳(4.0)／18畳(5.6)／20畳(6.3)が基本の並び。</div>
+    <p class="d"><b>畳数＝能力(kW)</b>で覚えると、カタログのどこを見てもすぐ分かります。数字が言えると、お客様の前でカタログをめくらずに話せます。</p>
+  </div>
+  <div class="qa">
+    <p class="q"><span class="n">3</span>シリーズごとの「売り」を、1つずつ書いてください。</p>
+    <div class="a">上位＝<b>お掃除＋換気＋ナノイーX＋人感/温度センサー</b>、中位＝<b>ナノイーXとお掃除</b>、普及＝<b>基本性能で価格が手頃</b>。</div>
+    <p class="d">1機種につき売りは1つで十分です。全部言おうとすると、お客様は覚えられません。</p>
+  </div>
+  <div class="qa">
+    <p class="q"><span class="n">4</span>お掃除機能は、何をしてくれて、何をしてくれませんか。</p>
+    <div class="a"><b>してくれる</b>＝フィルターの自動清掃。<b>してくれない</b>＝熱交換器・送風ファン・ドレンパンの汚れ。<b>だからクリーニングは必要。</b></div>
+    <p class="d">ここを誤解しているお客様がとても多いところです。「お掃除機能付きだから掃除はいらないと思っていた」→カビ臭。<b>正しく伝えると、あとでクリーニングの相談が来ます。</b></p>
+  </div>
+  <div class="qa">
+    <p class="q"><span class="n">5</span>ナノイーXや換気の機能を、お客様に一言で説明してください。</p>
+    <div class="a">ナノイーX＝<b>ニオイや菌を抑えて、内部を乾かしてカビを防ぐ</b>。換気＝<b>窓を開けずに外の空気を取り込める</b>（対応機種のみ）。</div>
+    <p class="d">カタログの言葉をそのまま読むと伝わりません。<b>「部屋干しのニオイ」「エアコン内部のカビ」</b>など、お客様の困りごとに置き換えて話します。</p>
+  </div>
+  <div class="qa">
+    <p class="q"><span class="n">6</span>100Vと200Vの違いと、どちらを選ぶかの目安は。</p>
+    <div class="a">14畳クラス以上は<b>200Vが中心</b>。既設が100Vなら分電盤・配線・コンセントの<b>電源工事が必要</b>（専用回路かどうかも確認）。</div>
+    <p class="d">見積の段階でここを見落とすと、当日「工事できません」になります。<b>現調で分電盤とコンセントの形を必ず見る。</b></p>
+  </div>
+  <div class="qa">
+    <p class="q"><span class="n">7</span>能力（kW）と畳数の関係を説明してください。</p>
+    <div class="a">カタログの畳数は<b>「木造和室〜鉄筋洋室」の幅</b>で書かれている。木造・南向き・最上階・天井が高い・窓が大きい家は<b>能力が足りなくなる</b>ので、迷ったら1ランク上。</div>
+    <p class="d">「6畳だから6畳用」で決めると、暑い夏に効かないという苦情になります。<b>家の作りを聞いてから決める</b>のがプロの選び方です。</p>
+  </div>
+  <div class="qa">
+    <p class="q"><span class="n">8</span>電気代の目安は、カタログのどこを見れば分かりますか。</p>
+    <div class="a"><b>期間消費電力量（kWh）</b>。31円/kWhで掛ければ年間のおおよその電気代。あわせて<b>APF</b>（数字が大きいほど省エネ）。</div>
+    <p class="d">古い機種との比較を数字で出せると、買い替えの後押しになります。数字は感想より強いです。</p>
+  </div>
+  <div class="qa">
+    <p class="q"><span class="n">9</span>去年のモデルと今年のモデル、何が変わりましたか。</p>
+    <div class="a"><b>店で確認。</b>カタログの新機能欄を見て、変わった点を1つか2つ言えれば十分。</div>
+    <p class="d">毎年大きくは変わりません。<b>「今年はここが変わりました」と1つ言えること</b>が、勉強している人の証拠になります。</p>
+  </div>
+  <h2 class="rd">第2回（使う）</h2>
+  <div class="qa">
+    <p class="q"><span class="n">1</span>上のクラスと普及クラス。値段の差は何の差ですか。</p>
+    <div class="a">①<b>省エネ性能（APF）</b>②<b>お掃除・換気・ナノイーX</b>③<b>センサーによる風の当て方</b>④静かさ。<b>まとめると「電気代・手入れ・快適さ」。</b></div>
+    <p class="d">テレビの「画・音・使いやすさ」と同じで、<b>3語でまとめる</b>と伝わります。長く使うほど電気代の差が効く、という説明が効果的です。</p>
+  </div>
+  <div class="qa">
+    <p class="q"><span class="n">2</span>「安いのでいい」と言われました。決める前に確かめることを3つ。</p>
+    <div class="a">①<b>部屋の広さと向き（日当たり）</b>②<b>使う時間（在宅か留守がちか、寝室か居間か）</b>③<b>冷房だけか暖房も使うか</b>。</div>
+    <p class="d">安いものを止める必要はありません。<b>安くても後悔しない条件かどうかを一緒に確かめる</b>だけ。ここを飛ばすと「効かない」という苦情になります。</p>
+  </div>
+  <div class="qa">
+    <p class="q"><span class="n">3</span>木造6畳の寝室、ご夫婦お二人。何をすすめて、どう説明しますか。</p>
+    <div class="a">木造は能力が落ちるので<b>2.2kW（6畳）ではなく2.5kW（8畳）も検討</b>。寝室なので<b>静かさ・除湿・タイマー</b>を重視。上位機能は不要。</div>
+    <p class="d">「寝室だから安いのでいい」ではなく、<b>寝室だから静かなものを</b>。使う場面で選ぶと、値段の話になりません。</p>
+  </div>
+  <div class="qa">
+    <p class="q"><span class="n">4</span>14畳のリビング、南向きで日当たりが良い家。畳数はどう選びますか。</p>
+    <div class="a">4.0kW（14畳）では足りないことがある。<b>4.5〜5.6kWを検討</b>。窓の大きさ・断熱・天井高・最上階かどうかも確認。</div>
+    <p class="d">能力不足は<b>フルパワーで回り続けて電気代が上がる</b>という説明が効きます。「大きめのほうが結局安く済むこともあります」と伝えられると強いです。</p>
+  </div>
+  <div class="qa">
+    <p class="q"><span class="n">5</span>「電気代が高い」と言われたとき、どう答えますか。</p>
+    <div class="a">①設定温度（冷房は下げすぎない）②<b>フィルターの汚れ</b>③短時間の外出はつけっぱなしのほうが安いことが多い ④<b>10年前の機種との差を数字で</b>。</div>
+    <p class="d">まず今の使い方の改善を伝えてから、買い替えの話をします。<b>先に売り込むと信用を失います。</b>掃除の話をした人が、次に相談される人です。</p>
+  </div>
+  <div class="qa">
+    <p class="q"><span class="n">6</span>10年使ったエアコン。買い替えをすすめる判断材料を3つ。</p>
+    <div class="a">①<b>部品の保有期間（製造から9〜10年）</b>＝修理できなくなる ②<b>電気代の差</b> ③<b>修理費と買い替えの比較</b>。加えて冷媒の種類、異音・水漏れの頻度。</div>
+    <p class="d">「古いから」ではなく、<b>直せなくなる時期が来る</b>という事実で話します。夏に壊れると工事が混んですぐ付けられない、も本当のことです。</p>
+  </div>
+  <div class="qa">
+    <p class="q"><span class="n">7</span>「冷えが悪い」と電話がありました。伺う前に聞いておくことを3つ。</p>
+    <div class="a">①<b>室外機は回っているか</b>②<b>フィルターは汚れていないか</b>③<b>いつからか（急にか、だんだんか）</b>。加えて設定（冷房になっているか）、風は出ているか、エラー表示。</div>
+    <p class="d">フィルターだけで直ることが本当にあります。<b>電話で解決したら、それも仕事。</b>行かずに直しても、その信頼は次の買い替えで返ってきます。</p>
+  </div>
+  <div class="qa">
+    <p class="q"><span class="n">8</span>工事で追加費用が出やすいのは、どんな家・どんな場所ですか。</p>
+    <div class="a">配管4m超、<b>隠蔽配管</b>、2階設置で足場が要る、<b>電源工事（専用回路・200V化）</b>、化粧カバー、コンクリート壁の穴あけ、室外機の特殊置き（屋根置き・二段・壁掛け）。</div>
+    <p class="d">これを現調で見抜けると、あとで金額が変わりません。<b>「あとから増える」がいちばん信用を失います。</b></p>
+  </div>
+  <div class="qa">
+    <p class="q"><span class="n">9</span>点検で伺った家で、エアコンの話につなげる一言を書いてください。</p>
+    <div class="a"><b>「これ、今年で何年目でしたっけ？」「この夏、効きはどうでした？」</b></div>
+    <p class="d">売り込む言葉は要りません。<b>年数と体感を聞くだけ。</b>答えが返ってきたら、それは見込みです。日報に記録して帰ります。</p>
+  </div>
+
+  <a class="back" href="kaito.html">← 回答編ポータルへ戻る</a>
+</div>
+<script>
+(function(){
+  var KEY="yahataKaitoAuth_v1", PIN="7860";
+  function reveal(){var g=document.getElementById("pinGate"); if(g) g.classList.add("hidden");}
+  window.checkPin=function(){
+    var v=(document.getElementById("pin").value||"").trim();
+    if(v===PIN){ try{localStorage.setItem(KEY,"1");}catch(e){} reveal(); }
+    else{ document.getElementById("pinErr").textContent="PINが違います"; }
+  };
+  var ok=false; try{ ok=localStorage.getItem(KEY)==="1"; }catch(e){}
+  if(ok) reveal();
+  else{ var i=document.getElementById("pin");
+    if(i){ i.addEventListener("keydown",function(e){ if(e.key==="Enter") window.checkPin(); });
+      setTimeout(function(){ try{i.focus();}catch(e){} },100); } }
+})();
+</script>
+</body>
+</html>
