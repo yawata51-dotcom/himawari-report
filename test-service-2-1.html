@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>サービス テーマ2 確認テスト 第1回｜ヤハタ電機商会</title>
+<style>
+  :root{
+    --paper:#f4f7fa; --card:#fff; --ink:#1c2530; --ink-soft:#4a5a6a; --line:#d7e0e8;
+    --sun:#f0a500; --sv:#164a7a; --kj:#2e7d32;
+  }
+  @media (prefers-color-scheme:dark){
+    :root{--paper:#10161d;--card:#1a2028;--ink:#e8edf2;--ink-soft:#a9b6c2;--line:#2c3844}
+  }
+  :root[data-theme="dark"]{
+    --paper:#10161d;--card:#1a2028;--ink:#e8edf2;--ink-soft:#a9b6c2;--line:#2c3844
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--paper);color:var(--ink);
+    font-family:"Yu Gothic Medium","Yu Gothic","Hiragino Kaku Gothic ProN","Noto Sans JP","Meiryo",sans-serif;
+    line-height:1.75;padding:28px 16px 80px}
+  .wrap{max-width:900px;margin:0 auto}
+  .lead{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--sun);
+    border-radius:10px;padding:16px 20px;margin:0 0 18px;font-size:14px}
+  .lead p{margin:0 0 6px}.lead p:last-child{margin:0}
+
+  .print-btn{position:fixed;right:16px;bottom:16px;z-index:99;font-family:inherit;font-size:15px;
+    font-weight:700;padding:12px 22px;border:none;border-radius:999px;background:var(--sv);
+    color:#fff;box-shadow:0 3px 12px rgba(0,0,0,.25);cursor:pointer}
+
+  /* 用紙 */
+  .sheet{background:#fff;color:#222;max-width:210mm;margin:20px auto 0;padding:12mm 12mm;
+    border:1px solid var(--line);border-radius:6px;box-shadow:0 2px 14px rgba(0,0,0,.08)}
+  .sheet+.sheet{margin-top:26px}
+  .hd{display:flex;justify-content:space-between;align-items:flex-end;padding-bottom:7px;margin-bottom:12px;
+    border-bottom:3px solid var(--sv)}
+  .sheet.k .hd{border-bottom-color:var(--kj)}
+  .hd h2{margin:0;font-size:20px}
+  .hd .badge{font-size:11.5px;color:#fff;background:var(--sv);border-radius:999px;padding:2px 12px}
+  .sheet.k .hd .badge{background:var(--kj)}
+  .meta{display:flex;gap:20px;font-size:13px;margin:0 0 12px}
+  .meta span{display:flex;align-items:flex-end;gap:6px}
+  .meta i{font-style:normal;font-weight:700;color:#444}
+  .meta u{text-decoration:none;border-bottom:1px solid #888;min-width:130px;height:20px;display:inline-block}
+
+  .q{border-bottom:1px dotted #bbb;padding:9px 0}
+  .q:last-child{border-bottom:none}
+  .qt{font-size:13.5px;font-weight:700;margin:0 0 4px;display:flex;gap:8px}
+  .qt .n{flex:0 0 auto;width:22px;height:22px;border-radius:50%;background:#eef3f8;color:var(--sv);
+    font-size:12px;display:flex;align-items:center;justify-content:center}
+  .sheet.k .qt .n{background:#eaf4ea;color:var(--kj)}
+  .qt .step{margin-left:auto;flex:0 0 auto;font-size:10.5px;font-weight:400;color:#777}
+  .a{border-bottom:1px solid #ccc;height:20px;margin:6px 0 0 30px}
+  .a.tall{height:20px;margin-top:5px}
+  .foot{margin-top:12px;font-size:11.5px;color:#555;background:#f3f6f9;border-radius:8px;padding:8px 12px}
+
+  @media print{
+    @page{size:A4 portrait;margin:10mm}
+    body{background:#fff;padding:0}
+    .screen-only,.print-btn{display:none !important}
+    .sheet{max-width:none;margin:0;padding:0;border:none;border-radius:0;box-shadow:none}
+    .sheet+.sheet{page-break-before:always;margin:0}
+    .q{page-break-inside:avoid}
+    .hd,.qt .n,.hd .badge,.foot{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  }
+
+  /* 記入・送信 */
+  .ans{width:100%;font-family:inherit;font-size:13.5px;line-height:1.7;color:#222;background:#fff;
+    border:none;border-bottom:1px solid #ccc;border-radius:0;padding:2px 2px 1px;margin:6px 0 0 30px;
+    width:calc(100% - 30px);resize:vertical;min-height:44px}
+  .ans:focus{outline:none;border-bottom:2px solid var(--sv);background:#fbfdff}
+  .sheet.k .ans:focus{border-bottom-color:var(--kj);background:#fbfdfb}
+  .who{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin:0 0 12px}
+    .who select{font-family:inherit;font-size:15px;padding:8px 12px;border:1px solid #ccc;border-radius:8px;background:#fff;color:#222}
+  .who input{font-family:inherit;font-size:14px;padding:7px 10px;border:1px solid #ccc;border-radius:8px}
+  .send{position:fixed;left:16px;right:16px;bottom:16px;z-index:98;display:flex;gap:10px;justify-content:center}
+  .send button{font-family:inherit;font-size:16px;font-weight:700;padding:14px 26px;border:none;
+    border-radius:999px;cursor:pointer;box-shadow:0 3px 14px rgba(0,0,0,.25)}
+  .send .line{background:#06c755;color:#fff;flex:1 1 auto;max-width:420px}
+  .send .copy{background:#fff;color:#333;border:1px solid #ccc}
+  body{padding-bottom:110px}
+  @media print{
+    .send{display:none !important}
+    .ans{border-bottom:1px solid #999;background:#fff !important;min-height:40px}
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap screen-only">
+  <div class="lead">
+    <p><b>1週目のテストです（知る）。</b>いま扱っているエアコンを、カタログを見ながら書いてください。</p>
+    <p><b>点数はつけません。</b>書けなかったところが、次に覚えるところです。</p>
+    <p><b>そのまま画面に書き込めます。</b>書けたら下の「LINEで送る」で、お店の公式LINEに送ってください。<b>月曜の打合せで答え合わせ</b>をします。紙で書きたいときは印刷ボタンからどうぞ。</p>
+  </div>
+</div>
+
+<div class="sheet">
+  <div class="hd">
+    <h2>テーマ2「エアコン」確認テスト 第1回</h2>
+    <span class="badge">サービススタッフ</span>
+  </div>
+  <div class="who">
+    <select id="who">
+      <option value="">お名前をえらんでください</option>
+      <option>伊藤圭</option>
+      <option>服部正文</option>
+    </select>
+  </div>
+
+  <div class="q">
+    <p class="qt"><span class="n">1</span>いま扱っているエアコンのシリーズを、上のクラスから順に書き出してください。<span class="step">全部知る</span></p>
+    <textarea class="ans" rows="3" data-q="いま扱っているエアコンのシリーズを、上のクラスから順に書き出してください。"></textarea>
+  </div>
+
+  <div class="q">
+    <p class="qt"><span class="n">2</span>畳数のラインナップを、小さい方から書いてください。<span class="step">全部知る</span></p>
+    <textarea class="ans" rows="2" data-q="畳数のラインナップを、小さい方から書いてください。"></textarea>
+  </div>
+
+  <div class="q">
+    <p class="qt"><span class="n">3</span>シリーズごとの「売り」を、1つずつ書いてください。<span class="step">特徴</span></p>
+    <textarea class="ans" rows="3" data-q="シリーズごとの「売り」を、1つずつ書いてください。"></textarea>
+  </div>
+
+  <div class="q">
+    <p class="qt"><span class="n">4</span>お掃除機能は、何をしてくれて、何をしてくれませんか。<span class="step">特徴</span></p>
+    <textarea class="ans" rows="2" data-q="お掃除機能は、何をしてくれて、何をしてくれませんか。"></textarea>
+  </div>
+
+  <div class="q">
+    <p class="qt"><span class="n">5</span>ナノイーXや換気の機能を、お客様に一言で説明してください。<span class="step">特徴</span></p>
+    <textarea class="ans" rows="2" data-q="ナノイーXや換気の機能を、お客様に一言で説明してください。"></textarea>
+  </div>
+
+  <div class="q">
+    <p class="qt"><span class="n">6</span>100Vと200Vの違いと、どちらを選ぶかの目安は。<span class="step">特徴</span></p>
+    <textarea class="ans" rows="2" data-q="100Vと200Vの違いと、どちらを選ぶかの目安は。"></textarea>
+  </div>
+
+  <div class="q">
+    <p class="qt"><span class="n">7</span>能力（kW）と畳数の関係を説明してください。<span class="step">特徴</span></p>
+    <textarea class="ans" rows="2" data-q="能力（kW）と畳数の関係を説明してください。"></textarea>
+  </div>
+
+  <div class="q">
+    <p class="qt"><span class="n">8</span>電気代の目安は、カタログのどこを見れば分かりますか。<span class="step">全部知る</span></p>
+    <textarea class="ans" rows="2" data-q="電気代の目安は、カタログのどこを見れば分かりますか。"></textarea>
+  </div>
+
+  <div class="q">
+    <p class="qt"><span class="n">9</span>去年のモデルと今年のモデル、何が変わりましたか。<span class="step">特徴</span></p>
+    <textarea class="ans" rows="2" data-q="去年のモデルと今年のモデル、何が変わりましたか。"></textarea>
+  </div>
+
+  <div class="foot">書けなかったところが、次に覚えるところです。カタログのどのページに載っているかも、あわせて確かめておいてください。</div>
+</div>
+
+<div class="send">
+  <button class="line" id="btnLine">LINEで送る</button>
+  <button class="copy" id="btnCopy">コピー</button>
+</div>
+<button class="print-btn" onclick="window.print()">🖨️ 印刷する</button>
+
+<script>
+(function(){
+  var KEY='quiz_'+location.pathname.split('/').pop();
+  var boxes=[].slice.call(document.querySelectorAll('.ans'));
+  var who=document.getElementById('who');
+  function save(){
+    try{ localStorage.setItem(KEY, JSON.stringify({w:who.value, a:boxes.map(function(b){return b.value;})})); }catch(e){}
+  }
+  try{
+    var d=JSON.parse(localStorage.getItem(KEY)||'null');
+    if(d){ who.value=d.w||''; (d.a||[]).forEach(function(v,i){ if(boxes[i]) boxes[i].value=v; }); }
+  }catch(e){}
+  boxes.concat([who]).forEach(function(b){ b.addEventListener('input', save); });
+
+  function build(){
+    var t='テーマ1「テレビ・ブルーレイ・アンテナ」確認テスト 第1回
+';
+    t+='お名前：'+(who.value||'')+'
+';
+    var d=new Date();
+    t+='日付：'+d.getFullYear()+'/'+(d.getMonth()+1)+'/'+d.getDate()+'
+
+';
+    boxes.forEach(function(b,i){
+      var q=b.getAttribute('data-q')||('問'+(i+1));
+      t+=(i+1)+'. '+q+'
+→ '+(b.value.trim()||'（書けませんでした）')+'
+
+';
+    });
+    return t.trim();
+  }
+  document.getElementById('btnLine').addEventListener('click', function(){
+    var t=build();
+    if(!who.value.trim()){ alert('お名前を入れてから送ってください。'); return; }
+    location.href='https://line.me/R/oaMessage/@112akvoe/?'+encodeURIComponent(t);
+  });
+  document.getElementById('btnCopy').addEventListener('click', function(){
+    var t=build();
+    if(navigator.clipboard){ navigator.clipboard.writeText(t).then(function(){ alert('コピーしました。LINEに貼り付けて送ってください。'); }); }
+    else { window.prompt('コピーして、LINEに貼り付けてください', t); }
+  });
+})();
+</script>
+</body>
+</html>
