@@ -420,6 +420,13 @@ function doPost(e) {
   try {
     const data = JSON.parse(e.postData.contents);
 
+    // クイズ：回答をLINEへ自動送信＋シートに記録
+    if (data.action === 'quiz') {
+      var qres = saveQuizAnswer_(data);
+      return ContentService.createTextOutput(JSON.stringify({ ok: qres }))
+        .setMimeType(ContentService.MimeType.JSON);
+    }
+
     // お礼ハガキ：訪問済の書き戻し
     if (data.action === 'hagakiDone') {
       const ok = markHagakiDone_(data.key, data.memo);
@@ -1435,4 +1442,53 @@ function searchCustomer(query) {
 function setup() {
   DriveApp.getFolderById("1--gy-_U-U-onPEZd3i8oWo290NDMZC9w");
   console.log("接続確認完了");
+}
+
+
+// ===== クイズ回答（育成のテスト）をLINEへ自動送信し、シートにも残す =====
+function saveQuizAnswer_(data) {
+  var name  = String(data.name || '（名前なし）');
+  var title = String(data.title || 'クイズ');
+  var items = data.items || [];   // [{q:'設問', a:'回答'}, ...]
+
+  var lines = [];
+  lines.push('📝 ' + title);
+  lines.push('お名前：' + name);
+  lines.push('');
+  for (var i = 0; i < items.length; i++) {
+    var q = String(items[i].q || '').trim();
+    var a = String(items[i].a || '').trim();
+    lines.push((i + 1) + '. ' + q);
+    lines.push('→ ' + (a || '（書けませんでした）'));
+    lines.push('');
+  }
+  var body = lines.join(String.fromCharCode(10)).trim();
+
+  // LINE（オーナーのみ・グループには送らない）
+  try {
+    var props = PropertiesService.getScriptProperties();
+    var lineToken   = props.getProperty('LINE_CHANNEL_ACCESS_TOKEN');
+    var ownerLineId = props.getProperty('OWNER_LINE_USER_ID');
+    if (lineToken && ownerLineId) {
+      UrlFetchApp.fetch('https://api.line.me/v2/bot/message/push', {
+        method: 'post',
+        headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + lineToken },
+        payload: JSON.stringify({ to: ownerLineId, messages: [{ type: 'text', text: body.slice(0, 4900) }] }),
+        muteHttpExceptions: true
+      });
+    }
+  } catch (err) {}
+
+  // シートに記録（なければ作る）
+  try {
+    var ss = SpreadsheetApp.getActiveSpreadsheet();
+    var sh = ss.getSheetByName('クイズ回答');
+    if (!sh) {
+      sh = ss.insertSheet('クイズ回答');
+      sh.appendRow(['送信日時', 'お名前', 'テスト', '回答']);
+    }
+    sh.appendRow([new Date(), name, title, body]);
+  } catch (err2) {}
+
+  return true;
 }

@@ -90,7 +90,7 @@
   <div class="lead">
     <p><b>テーマ1の確認テスト（第1回）です。</b>カタログや実物を見ながらで大丈夫です。</p>
     <p><b>点数はつけません。</b>書けなかったところが、次に覚えるところです。書いたら先輩といっしょに答え合わせをしてください。</p>
-    <p><b>そのまま画面に書き込めます。</b>書けたら下の「LINEで送る」で、お店の公式LINEに送ってください。<b>毎週月曜日の朝までに送る</b>と、その日の打合せで答え合わせができます。紙で書きたいときは印刷ボタンからどうぞ。</p>
+    <p><b>そのまま画面に書き込めます。</b>書けたら下の「送信する」を押してください。<b>毎週月曜日の朝までに送る</b>と、その日の打合せで答え合わせができます。紙で書きたいときは印刷ボタンからどうぞ。</p>
   </div>
 </div>
 
@@ -152,52 +152,43 @@
   <div class="foot">書けなかったところが、次に覚えるところです。分からないものは、実物を手に取って先輩に聞いてください。</div>
 </div>
 <div class="send">
-  <button class="line" id="btnLine">LINEで送る</button>
-  <button class="copy" id="btnCopy">コピー</button>
+  <button class="line" id="btnSend">送信する</button>
 </div>
 <button class="print-btn" onclick="window.print()">🖨️ 印刷する</button>
 
 <script>
 (function(){
-  var KEY='quiz_'+location.pathname.split('/').pop();
-  var boxes=[].slice.call(document.querySelectorAll('.ans'));
-  var who=document.getElementById('who');
+  var GAS = "https://script.google.com/macros/s/AKfycbwDhQVpdoB_Dt92NXiCXHFHREWf8O1EVU8jY_YyHtPH8wg7pB4INrcf7bTnN0QN-TAL/exec";
+  var TITLE = "テーマ1「ビスと電線の種類」確認テスト 第1回";
+  var KEY = "quiz_" + location.pathname.split("/").pop();
+  var boxes = [].slice.call(document.querySelectorAll(".ans"));
+  var who = document.getElementById("who");
+  var btn = document.getElementById("btnSend");
+
   function save(){
-    try{ localStorage.setItem(KEY, JSON.stringify({w:who.value, a:boxes.map(function(b){return b.value;})})); }catch(e){}
+    try { localStorage.setItem(KEY, JSON.stringify({ w: who.value, a: boxes.map(function(b){ return b.value; }) })); } catch(e){}
   }
-  try{
-    var d=JSON.parse(localStorage.getItem(KEY)||'null');
-    if(d){ who.value=d.w||''; (d.a||[]).forEach(function(v,i){ if(boxes[i]) boxes[i].value=v; }); }
-  }catch(e){}
-  boxes.concat([who]).forEach(function(b){ b.addEventListener('input', save); });
+  try {
+    var d = JSON.parse(localStorage.getItem(KEY) || "null");
+    if (d) { who.value = d.w || ""; (d.a||[]).forEach(function(v,i){ if(boxes[i]) boxes[i].value = v; }); }
+  } catch(e){}
+  boxes.concat([who]).forEach(function(b){ b.addEventListener("input", save); b.addEventListener("change", save); });
 
-  function build(){
-    var t='テーマ1「ビスと電線の種類」確認テスト 第1回
-';
-    t+='お名前：'+(who.value||'')+'
-';
-    var d=new Date();
-    t+='日付：'+d.getFullYear()+'/'+(d.getMonth()+1)+'/'+d.getDate()+'
-
-';
-    boxes.forEach(function(b,i){
-      var q=b.getAttribute('data-q')||('問'+(i+1));
-      t+=(i+1)+'. '+q+'
-→ '+(b.value.trim()||'（書けませんでした）')+'
-
-';
+  btn.addEventListener("click", function(){
+    if (!who.value) { alert("お名前をえらんでから送ってください。"); who.focus(); return; }
+    var items = boxes.map(function(b){ return { q: b.getAttribute("data-q") || "", a: b.value }; });
+    btn.disabled = true; btn.textContent = "送信中…";
+    fetch(GAS, {
+      method: "POST", mode: "no-cors",
+      body: JSON.stringify({ action: "quiz", name: who.value, title: TITLE, items: items })
+    }).then(function(){
+      btn.textContent = "送信しました";
+      btn.style.background = "#777";
+      alert("送信しました。月曜の打合せで答え合わせをします。");
+    }).catch(function(){
+      btn.disabled = false; btn.textContent = "送信する";
+      alert("送信できませんでした。電波のよいところでもう一度お試しください。");
     });
-    return t.trim();
-  }
-  document.getElementById('btnLine').addEventListener('click', function(){
-    var t=build();
-    if(!who.value.trim()){ alert('お名前を入れてから送ってください。'); return; }
-    location.href='https://line.me/R/oaMessage/@112akvoe/?'+encodeURIComponent(t);
-  });
-  document.getElementById('btnCopy').addEventListener('click', function(){
-    var t=build();
-    if(navigator.clipboard){ navigator.clipboard.writeText(t).then(function(){ alert('コピーしました。LINEに貼り付けて送ってください。'); }); }
-    else { window.prompt('コピーして、LINEに貼り付けてください', t); }
   });
 })();
 </script>
