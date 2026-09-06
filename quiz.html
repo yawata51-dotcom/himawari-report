@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>クイズポータル｜ヤハタ電機商会</title>
+<style>
+  :root {
+    --paper:#f4f7fa; --card:#ffffff; --ink:#1c2530; --ink-soft:#4a5a6a; --line:#d7e0e8;
+    --sun:#f0a500;
+    --kj-bg:#e8f5e9;  --kj-fg:#2e7d32;
+    --sv-bg:#e4eefa;  --sv-fg:#164a7a;
+    --hm-bg:#fff3e0;  --hm-fg:#8a5a00;
+    --ts-bg:#e3f2ec;  --ts-fg:#14524f;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --paper:#10161d; --card:#1a2028; --ink:#e8edf2; --ink-soft:#a9b6c2; --line:#2c3844;
+      --kj-bg:#152e18; --kj-fg:#8fd694;
+      --sv-bg:#152a3d; --sv-fg:#8ec2ef;
+      --hm-bg:#3a2b16; --hm-fg:#ffc76b;
+      --ts-bg:#123230; --ts-fg:#8fd6bb;
+    }
+  }
+  :root[data-theme="dark"] {
+    --paper:#10161d; --card:#1a2028; --ink:#e8edf2; --ink-soft:#a9b6c2; --line:#2c3844;
+    --kj-bg:#152e18; --kj-fg:#8fd694;
+    --sv-bg:#152a3d; --sv-fg:#8ec2ef;
+    --hm-bg:#3a2b16; --hm-fg:#ffc76b;
+    --ts-bg:#123230; --ts-fg:#8fd6bb;
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--paper); color: var(--ink);
+    font-family: "Yu Gothic Medium","Yu Gothic","Hiragino Kaku Gothic ProN","Noto Sans JP","Meiryo",sans-serif;
+    font-variant-numeric: tabular-nums; line-height: 1.75; padding: 32px 16px 70px;
+  }
+  .wrap { max-width: 900px; margin: 0 auto; }
+
+  .strip-title {
+    font-size: 12px; font-weight: 700; letter-spacing: 0.1em; color: var(--ink-soft);
+    margin: 30px 0 12px; padding-left: 11px; border-left: 3px solid var(--sun);
+  }
+  .strip-note { font-size: 12px; color: var(--ink-soft); margin: -6px 0 12px; padding-left: 14px; }
+
+  .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(265px, 1fr)); gap: 12px; }
+  .card {
+    display: block; background: var(--card); border: 1px solid var(--line); border-radius: 10px;
+    overflow: hidden; text-decoration: none; color: inherit; box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+    transition: box-shadow .18s, transform .18s;
+  }
+  .card:hover { box-shadow: 0 4px 14px rgba(0,0,0,0.11); transform: translateY(-1px); }
+  .card__head { display: flex; align-items: center; gap: 8px; padding: 9px 14px; font-size: 13px; font-weight: 700; }
+  .card__head .ic { font-size: 17px; line-height: 1; }
+  .card__body { padding: 12px 15px 14px; }
+  .card__title { font-size: 16px; font-weight: 700; margin: 0 0 3px; }
+  .card__desc { font-size: 12.5px; color: var(--ink-soft); margin: 0; }
+
+  .c-kj .card__head { background: var(--kj-bg); color: var(--kj-fg); }
+  .c-sv .card__head { background: var(--sv-bg); color: var(--sv-fg); }
+  .c-hm .card__head { background: var(--hm-bg); color: var(--hm-fg); }
+  .c-ts .card__head { background: var(--ts-bg); color: var(--ts-fg); }
+
+  .axis { background: var(--card); border: 1px solid var(--line); border-left: 3px solid var(--sun);
+          border-radius: 10px; padding: 14px 18px; margin: 0 0 4px; }
+  .axis p { margin: 0 0 4px; font-size: 13px; color: var(--ink-soft); }
+  .axis p:last-child { margin-bottom: 0; }
+  .axis b { color: var(--ink); }
+
+  .portal-links { margin: 38px 0 0; }
+  .portal-links > p { font-size: 12px; font-weight: 700; letter-spacing: 0.1em; color: var(--ink-soft);
+                      margin: 0 0 12px; padding-left: 11px; border-left: 3px solid var(--sun); }
+  .plink { display: block; padding: 16px 18px; border-radius: 10px; text-decoration: none;
+           box-shadow: 0 1px 3px rgba(0,0,0,0.06); }
+  .plink .e { display: block; font-size: 11px; letter-spacing: .14em; color: rgba(255,255,255,.72); }
+  .plink .t { display: block; font-size: 17px; font-weight: 700; color: #fff; margin: 3px 0 2px; }
+  .plink .s { display: block; font-size: 12px; color: rgba(255,255,255,.82); }
+
+  .block{background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden;margin:0 0 14px}
+  .block__head{display:flex;align-items:center;gap:9px;padding:11px 16px;font-size:14px;font-weight:700}
+  .block.sv .block__head{background:var(--sv-bg);color:var(--sv-fg)}
+  .block.kj .block__head{background:var(--kj-bg);color:var(--kj-fg)}
+  .block__body{padding:6px 10px 10px}
+  .row{display:flex;align-items:center;gap:10px;padding:8px 6px;border-bottom:1px dotted var(--line)}
+  .row:last-child{border-bottom:none}
+  .row .no{flex:0 0 auto;width:24px;height:24px;border-radius:50%;background:var(--paper);
+    color:var(--ink-soft);font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center}
+  .row .nm{flex:1 1 auto;font-size:14px;min-width:0}
+  .rds{flex:0 0 auto;display:flex;gap:6px}
+  .rd{font-size:12px;font-weight:700;padding:4px 12px;border-radius:999px;text-decoration:none;
+    background:var(--sun);color:#fff}
+  .block.sv .rd{background:var(--sv-fg)} .block.kj .rd{background:var(--kj-fg)}
+  .rd.off{background:transparent;border:1px dashed var(--line);color:var(--ink-soft);font-weight:400}
+  @media (max-width:520px){ .row .nm{font-size:13px} .rd{padding:4px 9px} }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="pt-head" style="background:linear-gradient(135deg,#4a2b6b 0%,#2b1740 100%);color:#fff;border-radius:10px;padding:26px 30px 24px;margin:0 0 20px">
+    <p style="font-size:12px;letter-spacing:.14em;color:rgba(255,255,255,.72);margin:0 0 6px">覚えたか、確かめる</p>
+    <h1 style="font-size:23px;font-weight:700;margin:0 0 6px;color:#fff;line-height:1.4">クイズポータル</h1>
+    <p style="font-size:13px;color:rgba(255,255,255,.82);margin:0">テーマごとに2回。書いたら先輩と答え合わせ。</p>
+  </div>
+
+  <p class="strip-title">サービススタッフ｜商品知識</p>
+  <div class="block sv">
+    <div class="block__head"><span>🔧</span>全14テーマ</div>
+    <div class="block__body">
+      <div class="row"><span class="no">1</span><span class="nm">テレビ・ブルーレイ・アンテナ</span><span class="rds"><a class="rd" href="test-service-1-1.html">第1回</a><a class="rd" href="test-service-1-2.html">第2回</a></span></div>
+      <div class="row"><span class="no">2</span><span class="nm">エアコン</span><span class="rds"><span class="rd off">第1回</span><span class="rd off">第2回</span></span></div>
+      <div class="row"><span class="no">3</span><span class="nm">冷蔵庫</span><span class="rds"><span class="rd off">第1回</span><span class="rd off">第2回</span></span></div>
+      <div class="row"><span class="no">4</span><span class="nm">洗濯機・衣類乾燥機</span><span class="rds"><span class="rd off">第1回</span><span class="rd off">第2回</span></span></div>
+      <div class="row"><span class="no">5</span><span class="nm">調理家電</span><span class="rds"><span class="rd off">第1回</span><span class="rd off">第2回</span></span></div>
+      <div class="row"><span class="no">6</span><span class="nm">家事家電</span><span class="rds"><span class="rd off">第1回</span><span class="rd off">第2回</span></span></div>
+      <div class="row"><span class="no">7</span><span class="nm">インターホン・電話機・防犯カメラ</span><span class="rds"><span class="rd off">第1回</span><span class="rd off">第2回</span></span></div>
+      <div class="row"><span class="no">8</span><span class="nm">季節もの</span><span class="rds"><span class="rd off">第1回</span><span class="rd off">第2回</span></span></div>
+      <div class="row"><span class="no">9</span><span class="nm">オール電化</span><span class="rds"><span class="rd off">第1回</span><span class="rd off">第2回</span></span></div>
+      <div class="row"><span class="no">10</span><span class="nm">トイレ</span><span class="rds"><span class="rd off">第1回</span><span class="rd off">第2回</span></span></div>
+      <div class="row"><span class="no">11</span><span class="nm">ヘルスケア・オーラルケア</span><span class="rds"><span class="rd off">第1回</span><span class="rd off">第2回</span></span></div>
+      <div class="row"><span class="no">12</span><span class="nm">理美容</span><span class="rds"><span class="rd off">第1回</span><span class="rd off">第2回</span></span></div>
+      <div class="row"><span class="no">13</span><span class="nm">設備商品</span><span class="rds"><span class="rd off">第1回</span><span class="rd off">第2回</span></span></div>
+      <div class="row"><span class="no">14</span><span class="nm">照明・火災警報器</span><span class="rds"><span class="rd off">第1回</span><span class="rd off">第2回</span></span></div>
+    </div>
+  </div>
+
+  <p class="strip-title">工事スタッフ｜道具と材料</p>
+  <div class="block kj">
+    <div class="block__head"><span>⚙️</span>全8テーマ</div>
+    <div class="block__body">
+      <div class="row"><span class="no">1</span><span class="nm">ビスと電線の種類</span><span class="rds"><a class="rd" href="test-koji-1-1.html">第1回</a><a class="rd" href="test-koji-1-2.html">第2回</a></span></div>
+      <div class="row"><span class="no">2</span><span class="nm">安全と養生・腰袋</span><span class="rds"><span class="rd off">第1回</span><span class="rd off">第2回</span></span></div>
+      <div class="row"><span class="no">3</span><span class="nm">エアコンの工具と部材</span><span class="rds"><span class="rd off">第1回</span><span class="rd off">第2回</span></span></div>
+      <div class="row"><span class="no">4</span><span class="nm">電動工具・のこぎり・測定器</span><span class="rds"><span class="rd off">第1回</span><span class="rd off">第2回</span></span></div>
+      <div class="row"><span class="no">5</span><span class="nm">電気工事・照明の工具と部材</span><span class="rds"><span class="rd off">第1回</span><span class="rd off">第2回</span></span></div>
+      <div class="row"><span class="no">6</span><span class="nm">アンテナの部材と配線</span><span class="rds"><span class="rd off">第1回</span><span class="rd off">第2回</span></span></div>
+      <div class="row"><span class="no">7</span><span class="nm">水道・排水・トイレの部材</span><span class="rds"><span class="rd off">第1回</span><span class="rd off">第2回</span></span></div>
+      <div class="row"><span class="no">8</span><span class="nm">オール電化・レンジフードの工具と部材</span><span class="rds"><span class="rd off">第1回</span><span class="rd off">第2回</span></span></div>
+    </div>
+  </div>
+
+  <div class="portal-links">
+    <p>ほかのポータル</p>
+    <div class="card-grid">
+      <a class="plink" href="sodateru.html" style="background:linear-gradient(135deg,#14524f 0%,#0c3331 100%)">
+        <span class="e">人を育てる</span><span class="t">育成ポータル</span>
+        <span class="s">求めること3つと、身につけるテーマ。</span>
+      </a>
+      <a class="plink" href="menu.html" style="background:linear-gradient(135deg,#1a3a5c 0%,#12283f 100%)">
+        <span class="e">毎日つかう</span><span class="t">業務ポータル</span>
+        <span class="s">日報を書く。見積をつくる。リストを見る。</span>
+      </a>
+      <a class="plink" href="manual.html" style="background:linear-gradient(135deg,#1f5f4a 0%,#123d31 100%)">
+        <span class="e">迷ったら開く</span><span class="t">現場サポート</span>
+        <span class="s">スタッフガイドと、工事の手順書。</span>
+      </a>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>サービス テーマ1 確認テスト 第2回｜ヤハタ電機商会</title>
+<style>
+  :root{
+    --paper:#f4f7fa; --card:#fff; --ink:#1c2530; --ink-soft:#4a5a6a; --line:#d7e0e8;
+    --sun:#f0a500; --sv:#164a7a; --kj:#2e7d32;
+  }
+  @media (prefers-color-scheme:dark){
+    :root{--paper:#10161d;--card:#1a2028;--ink:#e8edf2;--ink-soft:#a9b6c2;--line:#2c3844}
+  }
+  :root[data-theme="dark"]{
+    --paper:#10161d;--card:#1a2028;--ink:#e8edf2;--ink-soft:#a9b6c2;--line:#2c3844
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--paper);color:var(--ink);
+    font-family:"Yu Gothic Medium","Yu Gothic","Hiragino Kaku Gothic ProN","Noto Sans JP","Meiryo",sans-serif;
+    line-height:1.75;padding:28px 16px 80px}
+  .wrap{max-width:900px;margin:0 auto}
+  .lead{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--sun);
+    border-radius:10px;padding:16px 20px;margin:0 0 18px;font-size:14px}
+  .lead p{margin:0 0 6px}.lead p:last-child{margin:0}
+
+  .print-btn{position:fixed;right:16px;bottom:16px;z-index:99;font-family:inherit;font-size:15px;
+    font-weight:700;padding:12px 22px;border:none;border-radius:999px;background:var(--sv);
+    color:#fff;box-shadow:0 3px 12px rgba(0,0,0,.25);cursor:pointer}
+
+  /* 用紙 */
+  .sheet{background:#fff;color:#222;max-width:210mm;margin:20px auto 0;padding:12mm 12mm;
+    border:1px solid var(--line);border-radius:6px;box-shadow:0 2px 14px rgba(0,0,0,.08)}
+  .sheet+.sheet{margin-top:26px}
+  .hd{display:flex;justify-content:space-between;align-items:flex-end;padding-bottom:7px;margin-bottom:12px;
+    border-bottom:3px solid var(--sv)}
+  .sheet.k .hd{border-bottom-color:var(--kj)}
+  .hd h2{margin:0;font-size:20px}
+  .hd .badge{font-size:11.5px;color:#fff;background:var(--sv);border-radius:999px;padding:2px 12px}
+  .sheet.k .hd .badge{background:var(--kj)}
+  .meta{display:flex;gap:20px;font-size:13px;margin:0 0 12px}
+  .meta span{display:flex;align-items:flex-end;gap:6px}
+  .meta i{font-style:normal;font-weight:700;color:#444}
+  .meta u{text-decoration:none;border-bottom:1px solid #888;min-width:130px;height:20px;display:inline-block}
+
+  .q{border-bottom:1px dotted #bbb;padding:9px 0}
+  .q:last-child{border-bottom:none}
+  .qt{font-size:13.5px;font-weight:700;margin:0 0 4px;display:flex;gap:8px}
+  .qt .n{flex:0 0 auto;width:22px;height:22px;border-radius:50%;background:#eef3f8;color:var(--sv);
+    font-size:12px;display:flex;align-items:center;justify-content:center}
+  .sheet.k .qt .n{background:#eaf4ea;color:var(--kj)}
+  .qt .step{margin-left:auto;flex:0 0 auto;font-size:10.5px;font-weight:400;color:#777}
+  .a{border-bottom:1px solid #ccc;height:20px;margin:6px 0 0 30px}
+  .a.tall{height:20px;margin-top:5px}
+  .foot{margin-top:12px;font-size:11.5px;color:#555;background:#f3f6f9;border-radius:8px;padding:8px 12px}
+
+  @media print{
+    @page{size:A4 portrait;margin:10mm}
+    body{background:#fff;padding:0}
+    .screen-only,.print-btn{display:none !important}
+    .sheet{max-width:none;margin:0;padding:0;border:none;border-radius:0;box-shadow:none}
+    .sheet+.sheet{page-break-before:always;margin:0}
+    .q{page-break-inside:avoid}
+    .hd,.qt .n,.hd .badge,.foot{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap screen-only">
+  <div class="lead">
+    <p><b>テーマ1の確認テスト（第2回）です。</b>カタログや実物を見ながらで大丈夫です。</p>
+    <p><b>点数はつけません。</b>書けなかったところが、次に覚えるところです。書いたら先輩といっしょに答え合わせをしてください。</p>
+    <p>印刷するとA4が1枚出ます。</p>
+  </div>
+</div>
+
+<div class="sheet">
+  <div class="hd">
+    <h2>テーマ1「テレビ・ブルーレイ・アンテナ」確認テスト 第2回</h2>
+    <span class="badge">サービススタッフ</span>
+  </div>
+  <div class="meta">
+    <span><i>お名前</i><u></u></span>
+    <span><i>日付</i><u></u></span>
+  </div>
+
+  <div class="q">
+    <p class="qt"><span class="n">1</span>いま扱っているブルーレイレコーダーを、容量の大きい方から3つ書いてください。<span class="step">全部知る</span></p>
+    <div class="a"></div>
+    <div class="a tall"></div>
+    <div class="a tall"></div>
+  </div>
+
+  <div class="q">
+    <p class="qt"><span class="n">2</span>4Kと2K（フルハイビジョン）の違いを、お客様に一言で説明してください。<span class="step">特徴</span></p>
+    <div class="a"></div>
+    <div class="a tall"></div>
+  </div>
+
+  <div class="q">
+    <p class="qt"><span class="n">3</span>毎日録画をする方には、レコーダーのどこを見てすすめますか。<span class="step">どんな人に合うか</span></p>
+    <div class="a"></div>
+    <div class="a tall"></div>
+  </div>
+
+  <div class="q">
+    <p class="qt"><span class="n">4</span>リビング用と寝室用。選び方の違いを2つ書いてください。<span class="step">どんな人に合うか</span></p>
+    <div class="a"></div>
+    <div class="a tall"></div>
+  </div>
+
+  <div class="q">
+    <p class="qt"><span class="n">5</span>「量販店のほうが安かった」と言われました。どう答えますか。<span class="step">上と下の違い</span></p>
+    <div class="a"></div>
+    <div class="a tall"></div>
+  </div>
+
+  <div class="q">
+    <p class="qt"><span class="n">6</span>買い替えのとき、古いテレビはどうなりますか。費用の説明もあわせて。<span class="step">困りごと</span></p>
+    <div class="a"></div>
+    <div class="a tall"></div>
+  </div>
+
+  <div class="q">
+    <p class="qt"><span class="n">7</span>設置に伺う前に、お客様に確かめておくことを3つ。<span class="step">どんな人に合うか</span></p>
+    <div class="a"></div>
+    <div class="a tall"></div>
+  </div>
+
+  <div class="q">
+    <p class="qt"><span class="n">8</span>アンテナが原因で映らないとき、考えられる原因を3つ。<span class="step">アンテナ</span></p>
+    <div class="a"></div>
+    <div class="a tall"></div>
+  </div>
+
+  <div class="q">
+    <p class="qt"><span class="n">9</span>テレビを買い替えたお客様に、次にご案内できるものは何ですか。<span class="step">特徴</span></p>
+    <div class="a"></div>
+    <div class="a tall"></div>
+  </div>
+
+  <div class="foot">書けなかったところが、次に覚えるところです。カタログのどのページに載っているかも、あわせて確かめておいてください。</div>
+</div>
+
+<button class="print-btn" onclick="window.print()">🖨️ 印刷する</button>
+</body>
+</html>

@@ -1,3 +1,7 @@
+/* ★日報のLINE送信を止めておく（2026-09-01）。無料枠を見積の成約に回すため。
+   また送りたくなったら true に戻す */
+var NIPPO_LINE_ON = false;
+
 /**
  * 業務日報 受信・記録スクリプト
  */
@@ -224,6 +228,16 @@ function getProductMaster_() {
     return ContentService.createTextOutput(fireTestTriggerNow_());
   }
   // 一時：トリガー一覧を確認
+  if (e && e.parameter && e.parameter.action === 'ssid') {
+    return ContentService.createTextOutput('日報SSID=' + SpreadsheetApp.getActiveSpreadsheet().getId() + ' 名前=' + SpreadsheetApp.getActiveSpreadsheet().getName());
+  }
+  if (e && e.parameter && e.parameter.action === 'houchi') {
+    var _hh = 放置案件をまとめる();
+    var _hl = 放置案件をさがす();
+    var _ho = [_hh, ''];
+    _hl.forEach(function(x){ _ho.push('[' + x.kind + '] ' + x.name + '　' + x.date + '（' + x.days + '日）　' + x.what + '　' + x.note); });
+    return ContentService.createTextOutput(_ho.join(String.fromCharCode(10)));
+  }
   if (e && e.parameter && e.parameter.action === 'listtriggers') {
     var ts = ScriptApp.getProjectTriggers().map(function(t) {
       return { fn: t.getHandlerFunction(), type: String(t.getEventType()), src: String(t.getTriggerSource()) };
@@ -612,7 +626,7 @@ function createKoujiPDF(data) {
     const props = PropertiesService.getScriptProperties();
     const lineToken = props.getProperty('LINE_CHANNEL_ACCESS_TOKEN');
     const ownerLineId = props.getProperty('OWNER_LINE_USER_ID');
-    if (lineToken && ownerLineId) {
+    if (NIPPO_LINE_ON && lineToken && ownerLineId) {
       const msg = '📋【業務日報】' + docTitle + 'ができました\n\n担当：' + (data.staff || '') +
         '\n現場：' + (data.visitName || '') + ' 様\n作業：' + (data.workType || '') +
         '\n\n' + file.getUrl();
@@ -1125,7 +1139,7 @@ function sendDailyNippoSummaryCore_(ymd) {
   var props = PropertiesService.getScriptProperties();
   var lineToken = props.getProperty('LINE_CHANNEL_ACCESS_TOKEN');
   var ownerLineId = props.getProperty('OWNER_LINE_USER_ID');
-  if (lineToken && ownerLineId) {
+  if (NIPPO_LINE_ON && lineToken && ownerLineId) {
     UrlFetchApp.fetch('https://api.line.me/v2/bot/message/push', {
       method: 'post',
       headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + lineToken },

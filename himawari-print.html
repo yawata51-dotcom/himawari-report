@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ひまわりスタッフガイド - ヤハタデンキ</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', sans-serif;
+            background: #f0f4f8;
+            color: #222;
+            line-height: 1.85;
+            padding-bottom: 60px;
+        }
+
+        /* ヘッダー */
+        .header {
+            background: linear-gradient(135deg, #f57f17 0%, #ffa000 60%, #ffb300 100%);
+            color: #fff;
+            padding: 32px 20px 28px;
+            text-align: center;
+        }
+        .header .label {
+            font-size: 11px;
+            letter-spacing: 3px;
+            opacity: 0.75;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+        }
+        .header h1 { font-size: 22px; font-weight: 700; margin-bottom: 6px; }
+        .header .sub { font-size: 13px; opacity: 0.85; }
+
+        .container { max-width: 760px; margin: 0 auto; padding: 0 16px; }
+
+        /* 目次 */
+        .toc {
+            background: #fff;
+            border-radius: 12px;
+            padding: 22px 20px;
+            margin: 20px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.07);
+        }
+        .toc-title {
+            font-size: 11px;
+            letter-spacing: 2px;
+            color: #ffa000;
+            font-weight: 700;
+            margin-bottom: 14px;
+            text-transform: uppercase;
+        }
+        .toc a {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 0;
+            border-bottom: 1px solid #f0f0f0;
+            color: #333;
+            text-decoration: none;
+            font-size: 14px;
+        }
+        .toc a:last-child { border-bottom: none; }
+        .toc a:hover { color: #ffa000; }
+        .toc-num {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 24px;
+            height: 24px;
+            background: #fff3e0;
+            color: #ffa000;
+            border-radius: 50%;
+            font-size: 12px;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        /* セクション共通 */
+        .section {
+            background: #fff;
+            border-radius: 12px;
+            padding: 28px 22px;
+            margin: 16px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+        }
+        .section-label {
+            font-size: 10px;
+            letter-spacing: 2px;
+            color: #ffa000;
+            font-weight: 700;
+            margin-bottom: 6px;
+            text-transform: uppercase;
+        }
+        .section h2 {
+            font-size: 20px;
+            font-weight: 700;
+            color: #f57f17;
+            margin-bottom: 18px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid #fff3e0;
+        }
+        .section h3 {
+            font-size: 15px;
+            font-weight: 700;
+            color: #ffa000;
+            margin: 20px 0 10px;
+        }
+        p { font-size: 14px; margin-bottom: 12px; color: #444; }
+
+        /* ゴールデンサークル */
+        .golden-circle {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin: 16px 0;
+        }
+        .circle-item {
+            border-radius: 10px;
+            padding: 18px 20px;
+            position: relative;
+        }
+        .circle-why {
+            background: #f57f17;
+            color: #fff;
+        }
+        .circle-how {
+            background: #ffa000;
+            color: #fff;
+        }
+        .circle-what {
+            background: #fff3e0;
+            color: #f57f17;
+        }
+        .circle-badge {
+            font-size: 10px;
+            letter-spacing: 2px;
+            font-weight: 700;
+            opacity: 0.75;
+            margin-bottom: 6px;
+            display: block;
+        }
+        .circle-title {
+            font-size: 17px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+        .circle-body {
+            font-size: 13px;
+            line-height: 1.75;
+            opacity: 0.92;
+        }
+        .circle-what .circle-body { color: #333; opacity: 1; }
+
+        /* 矢印 */
+        .arrow {
+            text-align: center;
+            color: #ffa000;
+            font-size: 20px;
+            line-height: 1;
+        }
+
+        /* 業務カード */
+        .work-card {
+            border-radius: 10px;
+            overflow: hidden;
+            border: 2px solid #e0e0e0;
+            margin-bottom: 16px;
+        }
+        .work-header {
+            background: linear-gradient(135deg, #f57f17, #ffa000);
+            padding: 16px 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .work-icon {
+            font-size: 28px;
+            line-height: 1;
+        }
+        .work-name { font-size: 17px; font-weight: 700; color: #fff; }
+        .work-tagline { font-size: 12px; opacity: 0.9; color: #fff; margin-top: 3px; }
+        .work-body {
+            padding: 18px 20px;
+            background: #fff;
+        }
+        .work-desc {
+            font-size: 13px;
+            color: #444;
+            margin-bottom: 14px;
+            line-height: 1.8;
+            background: #f9f9f9;
+            padding: 12px;
+            border-radius: 6px;
+        }
+        .work-list {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        .work-list li {
+            font-size: 13px;
+            padding: 8px 0;
+            border-bottom: 1px solid #f5f5f5;
+            color: #555;
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+        }
+        .work-list li:last-child { border-bottom: none; }
+        .work-list li::before { content: "→"; color: #ffa000; flex-shrink: 0; }
+
+        .work1 .work-header { background: linear-gradient(135deg, #f57f17, #ffa000); }
+        .work2 .work-header { background: linear-gradient(135deg, #ffb300, #ffc107); }
+        .work3 .work-header { background: linear-gradient(135deg, #ff6f00, #ff8f00); }
+
+        /* 連携図 */
+        .flow {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4px;
+            margin: 20px 0;
+        }
+        .flow-box {
+            width: 100%;
+            max-width: 340px;
+            background: #fff3e0;
+            border-radius: 8px;
+            padding: 12px 16px;
+            text-align: center;
+            font-size: 13px;
+            font-weight: 700;
+            color: #f57f17;
+        }
+        .flow-arrow {
+            color: #ffa000;
+            font-size: 18px;
+        }
+
+        /* サマリーボックス */
+        .summary-box {
+            background: linear-gradient(135deg, #fff3e0, #fffbf0);
+            border-left: 4px solid #ffa000;
+            padding: 18px 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        .summary-box h3 {
+            font-size: 15px;
+            color: #f57f17;
+            margin: 0 0 10px 0;
+        }
+        .summary-box p {
+            font-size: 13px;
+            line-height: 1.8;
+            margin: 0;
+        }
+
+        /* 戻るリンク */
+        .back-top {
+            display: inline-block;
+            margin-top: 20px;
+            font-size: 12px;
+            color: #ffa000;
+            text-decoration: none;
+        }
+        .back-top:hover { text-decoration: underline; }
+
+        /* フッター */
+        .footer {
+            text-align: center;
+            padding: 30px 20px;
+            font-size: 11px;
+            color: #999;
+            line-height: 1.8;
+        }
+    </style>
+<style media="print">
+  @page { size: A4; margin: 14mm 12mm; }
+  body { background:#fff !important; padding-bottom:0 !important; }
+  .toc { display:none !important; }                 /* 目次は紙では不要 */
+  .back-top { display:none !important; }            /* 「▲ 目次へ」も消す */
+  .section { break-inside: avoid; page-break-inside: avoid; margin-bottom:14px !important; }
+  .work-card { break-inside: avoid; page-break-inside: avoid; }
+  .header { break-after: avoid; }
+  a { text-decoration:none; color:inherit; }
+</style>
+</head>
+<body>
+
+<div class="header">
+    <div class="label">Himawari Staff Guide</div>
+    <h1>🌻 ひまわりスタッフガイド</h1>
+    <div class="sub">ヤハタデンキ</div>
+</div>
+
+<div class="container">
+
+    <!-- 目次 -->
+    <div class="toc">
+        <div class="toc-title">Contents</div>
+        <a href="#s1"><span class="toc-num">01</span>ひまわりスタッフとは？</a>
+        <a href="#sMotome"><span class="toc-num">02</span>ひまわりスタッフに求めること</a>
+        <a href="#s2"><span class="toc-num">03</span>主な業務</a>
+        <a href="#sYear"><span class="toc-num">04</span>年間の活動サイクル</a>
+        <a href="#sRule"><span class="toc-num">05</span>働き方のきまり</a>
+        <a href="#s3"><span class="toc-num">06</span>他部門との連携</a>
+        <a href="#s4"><span class="toc-num">07</span>あなたの仕事が生み出すもの</a>
+    </div>
+
+    <!-- 1. ひまわりスタッフとは？ -->
+    <div class="section" id="s1">
+        <div class="section-label">Chapter 01</div>
+        <h2>ひまわりスタッフとは？</h2>
+
+        <p>
+            ひまわりスタッフは、お客様とヤハタデンキをつなぐ「懸け橋」です。
+        </p>
+
+        <div class="golden-circle">
+
+            <div class="circle-item circle-why">
+                <span class="circle-badge">なぜ ── この仕事の意義</span>
+                <div class="circle-title">お客様との信頼関係を育て続けるため</div>
+                <div class="circle-body">
+                    家電は売って終わりではありません。
+                    お客様の暮らしを長く見守り、困りごとが起きる前に気づき、
+                    「何かあればヤハタさんに」という関係を育て続けることが大切です。
+                    ひまわりスタッフは、定期的にお客様のもとを訪れ、
+                    顔の見える関係を作り、地域に根差した信頼を築く仕事です。
+                </div>
+            </div>
+
+            <div class="arrow">↓</div>
+
+            <div class="circle-item circle-how">
+                <span class="circle-badge">どのように ── 価値を届けるやり方</span>
+                <div class="circle-title">訪問・電話・店内の3つの活動でお客様に寄り添う</div>
+                <div class="circle-body">
+                    お客様との接点を途切れさせないことが信頼の源です。
+                    お得意様への訪問で顔を見せ、ごぶさた客・併売客へは電話でフォローし、
+                    店内では次の訪問やイベントの準備を行う。
+                    3つの活動を組み合わせることで、あらゆるお客様との関係を維持し、
+                    ヤハタデンキを「いつも気にかけてくれるお店」にします。
+                </div>
+            </div>
+
+            <div class="arrow">↓</div>
+
+            <div class="circle-item circle-what">
+                <span class="circle-badge">何をするか ── 具体的な仕事</span>
+                <div class="circle-title">訪問活動・電話フォロー・店内業務</div>
+                <div class="circle-body">
+                    チラシ配布、招待状のお届け、フォロー訪問、バースデーのハガキ、
+                    電話での様子伺い、店内装飾、イベント準備――
+                    これらすべては「お客様との関係を途切れさせない」ための手段です。
+                </div>
+            </div>
+
+        </div>
+        <a href="#" class="back-top">▲ 目次へ</a>
+    </div>
+
+    <!-- 2. 3つの業務 -->
+    <div class="section" id="sMotome">
+        <div class="section-label">Chapter 02</div>
+        <h2>ひまわりスタッフに求めること</h2>
+        <p>技術も知識も要りません。この3つだけです。</p>
+
+        <div class="work-card">
+            <div class="work-header"><div class="work-icon">😊</div>
+                <div><div class="work-name">笑顔で伺えること</div><div class="work-tagline">難しいことは要りません</div></div>
+            </div>
+            <div class="work-body">
+                <div class="work-desc">玄関を開けた瞬間の表情で、その場の空気が決まります。笑顔で「こんにちは」が言えれば、それで十分です。</div>
+            </div>
+        </div>
+
+        <div class="work-card">
+            <div class="work-header"><div class="work-icon">💬</div>
+                <div><div class="work-name">たくさんのお客様と、おしゃべりを楽しめること</div><div class="work-tagline">一軒で話し込むより、たくさんの家へ</div></div>
+            </div>
+            <div class="work-body">
+                <div class="work-desc">楽しそうな人のところには、お客様のほうから話しかけてくれます。聞き出そうとしなくて構いません。楽しんでいれば、自然と話してもらえます。</div>
+            </div>
+        </div>
+
+        <div class="work-card">
+            <div class="work-header"><div class="work-icon">🛍️</div>
+                <div><div class="work-name">小物や消耗品を、気軽にお届けできること</div><div class="work-tagline">それが「行く理由」になります</div></div>
+            </div>
+            <div class="work-body">
+                <div class="work-desc">電球1個、電池、掃除機の紙パック。金額にはなりませんが、<strong>会いに行く理由</strong>になります。気軽に届けられる人が、いちばん頼りにされます。</div>
+            </div>
+        </div>
+
+        <div style="background:#fff8ec;border:1px solid #f0d9a8;border-left:6px solid #8a5a00;border-radius:10px;padding:20px 22px;margin:22px 0 8px">
+            <div style="font-size:12px;letter-spacing:.16em;color:#8a5a00;font-weight:700;margin-bottom:10px">根っこにあるもの</div>
+            <div style="font-size:19px;font-weight:700;line-height:1.6;margin-bottom:14px">本当は、私が全部のお客様に会いに行きたい。</div>
+            <div style="background:#fff;border-radius:9px;padding:14px 18px;line-height:2;margin-bottom:14px">
+                〇〇さん、元気にしてるかな。<br>
+                エアコン、ちゃんと使えてるかな。<br>
+                洗濯機、汚れてきてないかな。<br>
+                掃除機の紙パック、まだあるかな。
+            </div>
+            <p style="margin:0 0 8px;color:#555">でも、手が回りません。<br>だからひまわりさんに、<strong>私の代わりに会いに行ってもらっています</strong>。</p>
+            <p style="margin:0;color:#555">心配だから、行く。<br>ひまわりさんは、<strong>お店の気持ちそのもの</strong>です。</p>
+        </div>
+
+        <p style="font-size:14px;color:#555;margin:14px 0 0"><strong>売らなくていい仕事です。</strong>ひまわりさんの訪問には売上がありません。それでいいのです。売り込まれなかった記憶があるから、困ったときに最初に思い出してもらえます。</p>
+        <a href="#" class="back-top">▲ 目次へ</a>
+    </div>
+
+    <!-- 2. 主な業務 -->
+    <div class="section" id="s2">
+        <div class="section-label">Chapter 03</div>
+        <h2>主な業務</h2>
+        <p>ひまわりスタッフの仕事は、お客様との接点を途切れさせないための様々な活動で構成されています。</p>
+
+        <div class="work-card">
+            <div class="work-header"><div class="work-icon">📬</div>
+                <div><div class="work-name">配布</div><div class="work-tagline">ハガキ・招待状・カレンダー・バースデーなど</div></div>
+            </div>
+            <div class="work-body">
+                <div class="work-desc"><strong>この業務の目的:</strong><br>お客様宅を訪問して各種配布物をお届けします。顔を見せることで「ヤハタデンキはいつも気にかけてくれる」という安心感を届けます。</div>
+                <ul class="work-list">
+                    <li>ハガキ・招待状・カレンダーをお客様宅へ配布する</li>
+                    <li><strong>冬フェアの招待状で伺うときは、カレンダーを持っていく</strong></li>
+                    <li>お買い上げいただいたお客様へ、お礼のハガキをお届けする</li>
+                    <li>誕生月のお客様にバースデーのハガキをお届けする（パナカード会員のみ）</li>
+                    <li>配布時にお客様との会話で困りごとをキャッチする</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="work-card">
+            <div class="work-header"><div class="work-icon">✉️</div>
+                <div><div class="work-name">招待状作成</div><div class="work-tagline">春・夏・秋・冬のイベントに向けて作成する</div></div>
+            </div>
+            <div class="work-body">
+                <div class="work-desc"><strong>この業務の目的:</strong><br>季節ごとのイベントに向けた招待状を作成します。お客様に来場していただくための大切な第一歩です。</div>
+                <ul class="work-list">
+                    <li>春・夏・秋・冬の各イベントに合わせた招待状を作成する</li>
+                    <li>お客様に来場していただける内容を工夫する</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="work-card">
+            <div class="work-header"><div class="work-icon">🛵</div>
+                <div><div class="work-name">小物・消耗品配達</div><div class="work-tagline">紙パック・インクフィルム・洗濯槽クリーナーなど</div></div>
+            </div>
+            <div class="work-body">
+                <div class="work-desc"><strong>この業務の目的:</strong><br>紙パック・インクフィルム・洗濯槽クリーナーなどの小物・消耗品をお届けします（管球以外）。定期的なお届けがお客様との継続的な関係を生みます。</div>
+                <ul class="work-list">
+                    <li>消耗品の在庫を確認し、お客様のタイミングでお届けする</li>
+                    <li>配達時にお客様の様子を確認し、困りごとをキャッチする</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="work-card">
+            <div class="work-header"><div class="work-icon">✂️</div>
+                <div><div class="work-name">アンケート回収</div><div class="work-tagline">工事・配達のあとに、もう一度お客様の顔を見に行く</div></div>
+            </div>
+            <div class="work-body">
+                <div class="work-desc"><strong>この業務の目的:</strong><br>工事・配達の担当が持ち帰った半券が、そのまま訪問リストになります。記入済みのアンケートをお預かりに伺いましょう。回収は「行く口実」です。回収率より、行った回数のほうが大切です。</div>
+                <ul class="work-list">
+                    <li>ひまわりBOXの半券を確認し、1週間以内に回収へ伺う</li>
+                    <li>書けていなければ、その場で伺って代筆してもよい</li>
+                    <li>お困りごとが書かれていたら、その日のうちに受注日報へ記録する</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="work-card">
+            <div class="work-header"><div class="work-icon">👥</div>
+                <div><div class="work-name">顧客管理</div><div class="work-tagline">お客様のかゆい所に手が届く存在になる</div></div>
+            </div>
+            <div class="work-body">
+                <div class="work-desc"><strong>この業務の目的:</strong><br>エアコン点検や消耗品の交換など、お客様のタイミングに合わせたフォローを行います。顧客情報を活用して、かゆい所に手が届く存在を目指します。</div>
+                <ul class="work-list">
+                    <li>エアコン点検の時期をお客様ごとに管理する</li>
+                    <li>消耗品の交換時期を把握し、先回りしてご提案する</li>
+                    <li>お客様の情報を日頃からしっかり把握する</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="work-card">
+            <div class="work-header"><div class="work-icon">📞</div>
+                <div><div class="work-name">電話フォロー</div><div class="work-tagline">訪問しない場合は電話でフォローする</div></div>
+            </div>
+            <div class="work-body">
+                <div class="work-desc"><strong>この業務の目的:</strong><br>ごぶさた客・併買客など訪問活動ではフォローしにくいお客様に電話で連絡し、関係を途切れさせないようにします。</div>
+                <ul class="work-list">
+                    <li>ごぶさた客・併買客に電話でフォローする</li>
+                    <li>「その後お困りごとはございませんか？」と様子を伺う</li>
+                    <li>雨の日など外回りが難しい日に積極的に実施する</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="work-card">
+            <div class="work-header"><div class="work-icon">📰</div>
+                <div><div class="work-name">かわらばんひまわりコーナー担当</div><div class="work-tagline">写真を提供してお客様に情報を届ける</div></div>
+            </div>
+            <div class="work-body">
+                <div class="work-desc"><strong>この業務の目的:</strong><br>かわらばんのひまわりコーナーの担当として、訪問活動の様子や季節の写真を提供します。</div>
+                <ul class="work-list">
+                    <li>訪問活動の様子・季節の写真を撮影・提供する</li>
+                    <li>お客様に親しみやすい情報をかわらばんに反映させる</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="work-card">
+            <div class="work-header"><div class="work-icon">📋</div>
+                <div><div class="work-name">アンケート訪問</div><div class="work-tagline">フェアとフェアの間に、聞きに行く</div></div>
+            </div>
+            <div class="work-body">
+                <div class="work-desc"><strong>この業務の目的:</strong><br>エアコン以外の柱をつくるために、お客様が今なにをお使いで、なにに困っているかを伺います。<strong>今期のテーマは冷蔵庫</strong>です。</div>
+                <ul class="work-list">
+                    <li>フェアとフェアの間の時期に、アンケートを持って訪問する</li>
+                    <li>今期は冷蔵庫について伺う</li>
+                    <li>伺った内容は、その日のうちに記録する</li>
+                </ul>
+                <div class="work-desc" style="margin-top:14px;border-left:4px solid #e07a5f;padding-left:12px">
+                    <strong>これは調査です。売り込みではありません。</strong><br>
+                    直接売りにつなげる質問やトークは、一切しなくて構いません。
+                    ひまわりスタッフの役割は<strong>関係をつくること</strong>と<strong>情報を取ること</strong>です。
+                    ご提案は、高山さん・サービススタッフが引き継ぎます。
+                </div>
+            </div>
+        </div>
+
+        <div class="work-card">
+            <div class="work-header"><div class="work-icon">📝</div>
+                <div><div class="work-name">日報記入</div><div class="work-tagline">ひまわり日報・受注日報を記録する</div></div>
+            </div>
+            <div class="work-body">
+                <div class="work-desc"><strong>この業務の目的:</strong><br>日々の訪問活動と受注内容を記録することで、チーム全体の情報共有に役立てます。</div>
+                <ul class="work-list">
+                    <li>ひまわり日報に当日の訪問先・対応内容を記入する</li>
+                    <li>受注日報に受注した商品内容を記入する</li>
+                </ul>
+            </div>
+        </div>
+
+        <a href="#" class="back-top">▲ 目次へ</a>
+    </div>
+
+    <!-- 3. 他部門との連携 -->
+    <div class="section" id="sYear">
+        <div class="section-label">Chapter 04</div>
+        <h2>年間の活動サイクル</h2>
+        <p>フェアは年に4回あります。<strong>3月末・6月末・10月上旬・11月末</strong>です。この4回を軸に、1年の動きが決まります。</p>
+        <table style="width:100%;border-collapse:collapse;margin:18px 0;font-size:15px">
+            <thead><tr style="background:#f4a300;color:#fff">
+                <th style="padding:11px 14px;text-align:left;border:1px solid #e0e0e0">時期</th>
+                <th style="padding:11px 14px;text-align:left;border:1px solid #e0e0e0">活動</th>
+            </tr></thead>
+            <tbody>
+                <tr><td style="padding:11px 14px;border:1px solid #e0e0e0;font-weight:700">フェアの1ヶ月前</td>
+                    <td style="padding:11px 14px;border:1px solid #e0e0e0">招待状訪問<br><span style="font-size:13px;color:#666">冬フェアのときはカレンダーも持っていく</span></td></tr>
+                <tr style="background:#fafafa"><td style="padding:11px 14px;border:1px solid #e0e0e0;font-weight:700">フェアとフェアの間</td>
+                    <td style="padding:11px 14px;border:1px solid #e0e0e0">アンケート訪問<br><span style="font-size:13px;color:#666">今期のテーマは冷蔵庫</span></td></tr>
+            </tbody>
+        </table>
+        <p style="font-size:14px;color:#555">お礼ハガキ・バースデーのハガキ・消耗品のお届けは、この流れとは別に、そのお客様のタイミングで伺います。</p>
+        <a href="#" class="back-top">▲ 目次へ</a>
+    </div>
+
+    <div class="section" id="sRule">
+        <div class="section-label">Chapter 05</div>
+        <h2>働き方のきまり</h2>
+        <p>数は多くありません。守ってもらいたいのは、この2つだけです。</p>
+
+        <div class="work-card">
+            <div class="work-header"><div class="work-icon">🌅</div>
+                <div><div class="work-name">朝はすぐ出発する</div><div class="work-tagline">店内業務は、戻ってから</div></div>
+            </div>
+            <div class="work-body">
+                <div class="work-desc"><strong>この業務の目的:</strong><br>出勤したら準備をして、<strong>すぐ出発</strong>してください。店内業務や翌日の準備は、<strong>戻ってきてから</strong>行います。</div>
+                <ul class="work-list">
+                    <li>朝は準備が終わったらすぐ出る</li>
+                    <li>店内業務・翌日の準備は帰ってきてから</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="work-card">
+            <div class="work-header"><div class="work-icon">☕</div>
+                <div><div class="work-name">休憩はタイムカードを押してから</div><div class="work-tagline">業務が終わってから休む</div></div>
+            </div>
+            <div class="work-body">
+                <div class="work-desc"><strong>この業務の目的:</strong><br>休憩は<strong>業務終了後</strong>、<strong>タイムカードを押してから</strong>取ってください。</div>
+                <ul class="work-list">
+                    <li>業務が終わってから休憩する</li>
+                    <li>タイムカードを押してから休憩に入る</li>
+                    <li>トイレ・水分補給は、この決まりの対象外です。いつでもどうぞ</li>
+                </ul>
+            </div>
+        </div>
+
+        <a href="#" class="back-top">▲ 目次へ</a>
+    </div>
+
+    <div class="section" id="s3">
+        <div class="section-label">Chapter 06</div>
+        <h2>他部門との連携</h2>
+
+        <p>
+            ひまわりスタッフは、お客様の困りごとをキャッチし、他部門へつなぐ「最初の窓口」です。
+        </p>
+
+        <div class="flow">
+            <div class="flow-box" style="background:#fff3e0; color:#f57f17;">
+                🌻 ひまわりスタッフ<br>
+                <span style="font-weight:normal; font-size:12px;">訪問・電話でお客様の困りごとをキャッチ</span>
+            </div>
+            <div class="flow-arrow">↓</div>
+            <div class="flow-box" style="background:#e8f5e9; color:#2e7d32;">
+                🔧 サービススタッフ<br>
+                <span style="font-weight:normal; font-size:12px;">点検・お困りごと対応・見積り</span>
+            </div>
+            <div class="flow-arrow">↓</div>
+            <div class="flow-box" style="background:#ffebee; color:#b71c1c;">
+                ⚙️ 工事スタッフ<br>
+                <span style="font-weight:normal; font-size:12px;">取り付け・設置・修理</span>
+            </div>
+            <div class="flow-arrow">↓</div>
+            <div class="flow-box" style="background:#eceff1; color:#455a64;">
+                🗂 事務スタッフ<br>
+                <span style="font-weight:normal; font-size:12px;">情報管理・スケジュール調整・連携</span>
+            </div>
+        </div>
+
+        <h3>ひまわりスタッフが果たす役割</h3>
+        <p>
+            ひまわりスタッフは「お客様の困りごと」を「解決への第一歩」につなぐ最初の窓口です。
+            訪問や電話でキャッチした情報を、サービススタッフや工事スタッフへ正確に伝えることで、
+            お客様の「困った」が「よかった」に変わります。
+            あなたの気づきが、すべての始まりです。
+        </p>
+
+        <a href="#" class="back-top">▲ 目次へ</a>
+    </div>
+
+    <!-- 4. あなたの仕事が生み出すもの -->
+    <div class="section" id="s4">
+        <div class="section-label">Chapter 07</div>
+        <h2>あなたの仕事が生み出すもの</h2>
+
+        <p>
+            ひまわりスタッフは、お客様に「ありがとう」と言っていただける仕事です。
+        </p>
+
+        <p>
+            「いつも気にかけてくれてありがとう」<br>
+            「あなたが来てくれると嬉しいわ」
+        </p>
+
+        <p>
+            こうした言葉が、毎日の仕事の中で聞けます。
+            これは、顔の見える関係を大切にしているからこそ届けられる、ひまわりスタッフの誇りです。
+        </p>
+
+        <div class="summary-box">
+            <h3>ひまわりスタッフの誇り</h3>
+            <p>
+                地域のお客様との信頼関係を育て続けること。<br>
+                それがすべての仕事の出発点であり、<br>
+                あなたがここにいる理由です。
+            </p>
+        </div>
+
+        <p style="font-size:13px; color:#666; margin-top:20px;">
+            直接的な作業手順や詳細なマニュアルは、別途用意されています。<br>
+            このガイドでは「ひまわりスタッフとは何か」という本質を理解してください。
+        </p>
+
+        <a href="#" class="back-top">▲ 目次へ</a>
+    </div>
+
+    <div class="footer">
+        ヤハタデンキ　〒263-0005 千葉市稲毛区長沼町330-24　TEL: 043-259-0463<br>
+        作成日：2026年5月16日
+    </div>
+
+</div>
+</body>
+</html>
