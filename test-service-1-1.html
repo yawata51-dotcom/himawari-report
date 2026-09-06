@@ -63,6 +63,25 @@
     .q{page-break-inside:avoid}
     .hd,.qt .n,.hd .badge,.foot{-webkit-print-color-adjust:exact;print-color-adjust:exact}
   }
+
+  /* 記入・送信 */
+  .ans{width:100%;font-family:inherit;font-size:13.5px;line-height:1.7;color:#222;background:#fff;
+    border:none;border-bottom:1px solid #ccc;border-radius:0;padding:2px 2px 1px;margin:6px 0 0 30px;
+    width:calc(100% - 30px);resize:vertical;min-height:44px}
+  .ans:focus{outline:none;border-bottom:2px solid var(--sv);background:#fbfdff}
+  .sheet.k .ans:focus{border-bottom-color:var(--kj);background:#fbfdfb}
+  .who{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin:0 0 12px}
+  .who input{font-family:inherit;font-size:14px;padding:7px 10px;border:1px solid #ccc;border-radius:8px}
+  .send{position:fixed;left:16px;right:16px;bottom:16px;z-index:98;display:flex;gap:10px;justify-content:center}
+  .send button{font-family:inherit;font-size:16px;font-weight:700;padding:14px 26px;border:none;
+    border-radius:999px;cursor:pointer;box-shadow:0 3px 14px rgba(0,0,0,.25)}
+  .send .line{background:#06c755;color:#fff;flex:1 1 auto;max-width:420px}
+  .send .copy{background:#fff;color:#333;border:1px solid #ccc}
+  body{padding-bottom:110px}
+  @media print{
+    .send{display:none !important}
+    .ans{border-bottom:1px solid #999;background:#fff !important;min-height:40px}
+  }
 </style>
 </head>
 <body>
@@ -71,7 +90,7 @@
   <div class="lead">
     <p><b>テーマ1の確認テスト（第1回）です。</b>2週間の終わりに書いてみてください。カタログや実物を見ながらで大丈夫です。</p>
     <p><b>点数はつけません。</b>書けなかったところが、次に覚えるところです。書いたら先輩といっしょに答え合わせをしてください。</p>
-    <p>印刷するとA4が1枚出ます。</p>
+    <p><b>そのまま画面に書き込めます。</b>書けたら下の「LINEで送る」で、お店の公式LINEに送ってください。紙で書きたいときは印刷ボタンからどうぞ。</p>
   </div>
 </div>
 
@@ -81,58 +100,106 @@
     <h2>テーマ1「テレビ・ブルーレイ・アンテナ」確認テスト 第1回</h2>
     <span class="badge">サービススタッフ</span>
   </div>
-  <div class="meta">
-    <span><i>お名前</i><u></u></span>
-    <span><i>日付</i><u></u></span>
+  <div class="who">
+    <input id="who" type="text" placeholder="お名前を入れてください" autocomplete="name">
   </div>
 
   <div class="q">
     <p class="qt"><span class="n">1</span>いま店ですすめているテレビを、大きい方から3つ書いてください。<span class="step">全部知る</span></p>
-    <div class="a"></div><div class="a tall"></div><div class="a tall"></div>
+    <textarea class="ans" rows="2" data-q="いま店ですすめているテレビを、大きい方から3つ書いてください。全部知る"></textarea>
   </div>
 
   <div class="q">
     <p class="qt"><span class="n">2</span>いま扱っているテレビの画面サイズ（インチ）を、小さい方から順に書いてください。<span class="step">全部知る</span></p>
-    <div class="a"></div><div class="a tall"></div>
+    <textarea class="ans" rows="2" data-q="いま扱っているテレビの画面サイズ（インチ）を、小さい方から順に書いてください。全部知る"></textarea>
   </div>
 
   <div class="q">
     <p class="qt"><span class="n">3</span>有機ELと液晶、それぞれの良いところを一言ずつ。<span class="step">特徴</span></p>
-    <div class="a"></div><div class="a tall"></div>
+    <textarea class="ans" rows="2" data-q="有機ELと液晶、それぞれの良いところを一言ずつ。特徴"></textarea>
   </div>
 
   <div class="q">
     <p class="qt"><span class="n">4</span>いちばん上のモデルと、いちばん下のモデル。値段の差は何の差ですか。<span class="step">上と下の違い</span></p>
-    <div class="a"></div><div class="a tall"></div>
+    <textarea class="ans" rows="2" data-q="いちばん上のモデルと、いちばん下のモデル。値段の差は何の差ですか。上と下の違い"></textarea>
   </div>
 
   <div class="q">
     <p class="qt"><span class="n">5</span>ブルーレイレコーダーで、お客様が違いを感じるところを2つ。<span class="step">特徴</span></p>
-    <div class="a"></div><div class="a tall"></div>
+    <textarea class="ans" rows="2" data-q="ブルーレイレコーダーで、お客様が違いを感じるところを2つ。特徴"></textarea>
   </div>
 
   <div class="q">
     <p class="qt"><span class="n">6</span>「録画は使わない、字幕と音が聞きやすければいい」という80代のお客様。どれをすすめて、どう説明しますか。<span class="step">どんな人に合うか</span></p>
-    <div class="a"></div><div class="a tall"></div><div class="a tall"></div>
+    <textarea class="ans" rows="2" data-q="「録画は使わない、字幕と音が聞きやすければいい」という80代のお客様。どれをすすめて、どう説明しますか。どんな人に合うか"></textarea>
   </div>
 
   <div class="q">
     <p class="qt"><span class="n">7</span>「最近テレビが映らないことがある」と電話がありました。伺う前に、電話で確かめておくことを3つ。<span class="step">困りごと</span></p>
-    <div class="a"></div><div class="a tall"></div>
+    <textarea class="ans" rows="2" data-q="「最近テレビが映らないことがある」と電話がありました。伺う前に、電話で確かめておくことを3つ。困りごと"></textarea>
   </div>
 
   <div class="q">
     <p class="qt"><span class="n">8</span>分配器・混合器・ブースターは、それぞれ何をするものですか。<span class="step">アンテナ</span></p>
-    <div class="a"></div><div class="a tall"></div><div class="a tall"></div>
+    <textarea class="ans" rows="2" data-q="分配器・混合器・ブースターは、それぞれ何をするものですか。アンテナ"></textarea>
   </div>
 
   <div class="q">
     <p class="qt"><span class="n">9</span>1台のアンテナから部屋を1つ増やしたい、と言われました。何が必要ですか。<span class="step">アンテナ</span></p>
-    <div class="a"></div><div class="a tall"></div>
+    <textarea class="ans" rows="2" data-q="台のアンテナから部屋を1つ増やしたい、と言われました。何が必要ですか。アンテナ"></textarea>
   </div>
 
   <div class="foot">書けなかったところが、次に覚えるところです。カタログのどのページを見れば載っているかも、あわせて確かめておいてください。</div>
 </div>
+<div class="send">
+  <button class="line" id="btnLine">LINEで送る</button>
+  <button class="copy" id="btnCopy">コピー</button>
+</div>
 <button class="print-btn" onclick="window.print()">🖨️ 印刷する</button>
+
+<script>
+(function(){
+  var KEY='quiz_'+location.pathname.split('/').pop();
+  var boxes=[].slice.call(document.querySelectorAll('.ans'));
+  var who=document.getElementById('who');
+  function save(){
+    try{ localStorage.setItem(KEY, JSON.stringify({w:who.value, a:boxes.map(function(b){return b.value;})})); }catch(e){}
+  }
+  try{
+    var d=JSON.parse(localStorage.getItem(KEY)||'null');
+    if(d){ who.value=d.w||''; (d.a||[]).forEach(function(v,i){ if(boxes[i]) boxes[i].value=v; }); }
+  }catch(e){}
+  boxes.concat([who]).forEach(function(b){ b.addEventListener('input', save); });
+
+  function build(){
+    var t='テーマ1「テレビ・ブルーレイ・アンテナ」確認テスト 第1回
+';
+    t+='お名前：'+(who.value||'')+'
+';
+    var d=new Date();
+    t+='日付：'+d.getFullYear()+'/'+(d.getMonth()+1)+'/'+d.getDate()+'
+
+';
+    boxes.forEach(function(b,i){
+      var q=b.getAttribute('data-q')||('問'+(i+1));
+      t+=(i+1)+'. '+q+'
+→ '+(b.value.trim()||'（書けませんでした）')+'
+
+';
+    });
+    return t.trim();
+  }
+  document.getElementById('btnLine').addEventListener('click', function(){
+    var t=build();
+    if(!who.value.trim()){ alert('お名前を入れてから送ってください。'); return; }
+    location.href='https://line.me/R/oaMessage/@112akvoe/?'+encodeURIComponent(t);
+  });
+  document.getElementById('btnCopy').addEventListener('click', function(){
+    var t=build();
+    if(navigator.clipboard){ navigator.clipboard.writeText(t).then(function(){ alert('コピーしました。LINEに貼り付けて送ってください。'); }); }
+    else { window.prompt('コピーして、LINEに貼り付けてください', t); }
+  });
+})();
+</script>
 </body>
 </html>
